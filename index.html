@@ -54,6 +54,34 @@
     <!-- Video Player -->
     <link href="https://vjs.zencdn.net/8.3.0/video-js.css" rel="stylesheet" />
     <script src="https://vjs.zencdn.net/8.3.0/video.min.js" defer></script>
+    <!-- Favicons -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/favicons/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/favicons/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/favicons/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/favicons/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="/favicons/safari-pinned-tab.svg"
+      color="#4f3dfd"
+    />
+    <link rel="shortcut icon" href="/favicons/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#4f3dfd" />
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
     <!-- CSS file -->
     <link rel="stylesheet" href="css/style.css" type="text/css" />
   </head>
@@ -61,25 +89,54 @@
     <!------------------ 
       Header
     ---------------------->
-    <header class="header">
+    <header class="section-header">
       <a href="/">
-        <span class="logo">Kashif Najeeb</span>
+        <span class="section-header-logo logo">Kashif Najeeb</span>
       </a>
-      <nav class="navbar">
-        <ul class="navbar-links">
-          <li><a href="/" class="navbar-link home-link">Home</a></li>
-          <li><a href="/#about" class="navbar-link about-link">About</a></li>
-          <li>
-            <a href="/#hobbies" class="navbar-link service-link">Hobbies</a>
+      <nav class="section-header-navbar">
+        <input type="checkbox" id="section-header-check" />
+        <label for="section-header-check" class="section-header-checkbtn">
+          <ion-icon name="menu-outline"></ion-icon>
+          <ion-icon name="close-outline"></ion-icon>
+        </label>
+        <ul class="section-header-navbar-links">
+          <li class="section-header-navbar-link-item">
+            <a href="/" class="section-header-navbar-link home-link">Home</a>
           </li>
-          <li>
-            <a href="/#projects" class="navbar-link service-link">Projects</a>
+          <li class="section-header-navbar-link-item">
+            <a
+              href="/#about"
+              class="section-header-navbar-link section-header-about-link"
+              >About</a
+            >
           </li>
-          <li>
-            <a href="/#photos" class="navbar-link contact-link">Photos</a>
+          <li class="section-header-navbar-link-item">
+            <a
+              href="/#hobbies"
+              class="section-header-navbar-link section-header-service-link"
+              >Hobbies</a
+            >
           </li>
-          <li>
-            <a href="/#contact" class="navbar-link contact-link">Contact</a>
+          <li class="section-header-navbar-link-item">
+            <a
+              href="/#projects"
+              class="section-header-navbar-link section-header-service-link"
+              >Projects</a
+            >
+          </li>
+          <li class="section-header-navbar-link-item">
+            <a
+              href="/#photos"
+              class="section-header-navbar-link section-header-photoss-link"
+              >Photos</a
+            >
+          </li>
+          <li class="section-header-navbar-link-item">
+            <a
+              href="/#contact"
+              class="section-header-navbar-link section-header-contact-link"
+              >Contact</a
+            >
           </li>
         </ul>
       </nav>
@@ -129,7 +186,7 @@
               data-setup="{}"
             >
               <source
-                src="https://rr1---sn-4g5ednld.c.drive.google.com/videoplayback?expire=1682805994&ei=qlxNZOWfLNzp1bYPn_iWyA4&ip=2001:171b:2278:ea50:86a:4935:f33:4818&cp=QVRNVElfVFlXRVhPOmszbmFCVEdMeldkYWJNUi1seUV6dmU4bEpBQkc3X2IwT3BWZlllUHUwaEE&id=58615fadb1b60f7a&itag=37&source=webdrive&requiressl=yes&ttl=transient&susc=dr&driveid=1H5C__Zkev82fYMLIuk_sDak286Tl-jKb&app=explorer&mime=video/mp4&vprv=1&prv=1&dur=212.973&lmt=1603298805034102&subapp=DRIVE_WEB_FILE_VIEWER&sparams=expire,ei,ip,cp,id,itag,source,requiressl,ttl,susc,driveid,app,mime,vprv,prv,dur,lmt&sig=AOq0QJ8wRQIhAIUNJDD2a18Izrq4IyGmnoXoG2q57oEKzESTGBmGzcIjAiBhxH332g9BusRPwwU3VhaKWQXzZTg2rq9HFYhm6oZrfQ==&cpn=A2iXxfHegfLcO7N3&c=WEB_EMBEDDED_PLAYER&cver=1.20230425.01.00&redirect_counter=1&cm2rm=sn-1gies7e&req_id=17e3a961bf62a3ee&cms_redirect=yes&cmsv=e&mh=Z8&mm=34&mn=sn-4g5ednld&ms=ltu&mt=1682791003&mv=m&mvi=1&pl=47&lsparams=mh,mm,mn,ms,mv,mvi,pl&lsig=AG3C_xAwRQIhAOGUOLnEkLolCI5im9lq9cvBbRwuAshp1ZFCiQEqui7GAiAqA9uK79TJfsUNuw-ndXQw-5MJpHTgnR3kWpRoldY5dg%3D%3D"
+                src="https://videos-cloudfront.jwpsrv.com/644dce07_c7446bc7d4a8aa02704dc2acc6ad8b5c3b93532b/content/conversions/917bNJ6O/videos/PYFsgeaT-32198744.mp4"
                 type="video/mp4"
               />
               <p class="vjs-no-js">
@@ -177,7 +234,7 @@
       <section class="section section-skills">
         <div class="section-skills-data container">
           <h2 class="section-skills-heading common-heading">
-            Web Development skills that I have
+            Web Development skills
           </h2>
           <div class="section-skills-stats">
             <h3 class="section-skills-stats-heading">HTML</h3>
@@ -823,7 +880,7 @@
       <div class="container">
         <div class="section-footer-credits">
           <p class="section-footer-text section-footer-credits-text">
-            Copyright &copy; 2022 All rights reserved
+            Copyright &copy; 2023 Kashif Najeeb. All Rights Reserved.
           </p>
         </div>
       </div>
