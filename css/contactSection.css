@@ -1,0 +1,54 @@
+/*---------------------------
+Contact Section Start
+---------------------------*/
+.section-contact,
+.section-contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.section-contact-map {
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  box-shadow: var(--secondary-shadow);
+}
+
+.section-contact-form {
+  gap: 1rem;
+  width: 100%;
+}
+
+.section-contact-data {
+  width: 100%;
+}
+
+.section-contact-input-field {
+  width: 100%;
+  overflow: hidden;
+}
+
+.section-contact-input-label {
+  display: block;
+  font-size: 1.65rem;
+}
+
+.section-contact-input {
+  width: 100%;
+  padding: 2rem;
+  border-radius: 1rem;
+  border: 0.2rem solid var(--helper);
+  box-shadow: var(--shadow);
+  font-size: 1.65rem;
+}
+
+textarea.section-contact-input {
+  resize: none;
+  height: 20rem;
+  font-family: inherit;
+}
+
+.section-contact-form-submit-btn {
+  align-self: center;
+  width: 20rem;
+}

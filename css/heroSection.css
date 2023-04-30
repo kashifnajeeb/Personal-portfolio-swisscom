@@ -1,0 +1,21 @@
+/*---------------------------
+Hero Section Start
+---------------------------*/
+.section-hero-text {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.section-hero-image {
+  text-align: center;
+  height: 100%;
+}
+
+.section-hero-img {
+  width: 30rem;
+  border-radius: 2rem;
+  height: 100%;
+  box-shadow: var(--secondary-shadow);
+}

@@ -1,0 +1,10 @@
+/*---------------------------
+About Section Start
+---------------------------*/
+.section-about-video {
+  width: 100%;
+  height: 100%;
+  box-shadow: var(--secondary-shadow);
+  border-radius: 2rem;
+  overflow: hidden;
+}

@@ -1,0 +1,58 @@
+/*---------------------------
+Footer Section Start
+---------------------------*/
+.section-footer {
+  background: var(--para);
+  transition: all 0.7s linear;
+}
+
+.section-footer-links {
+  justify-self: center;
+}
+
+.section-footer-heading {
+  color: var(--white);
+  margin-bottom: 4rem;
+}
+
+.section-footer-text,
+.section-footer-link,
+.section-footer-list-item-link,
+.section-footer-list-item {
+  color: #adadad;
+}
+
+.section-footer-list,
+.section-footer-address-data {
+  display: flex;
+  flex-direction: column;
+  gap: 1.8rem;
+  justify-content: center;
+}
+
+.section-footer-list-item,
+.section-footer-list-item-link {
+  font-size: 1.8rem;
+  text-transform: capitalize;
+}
+
+.section-footer-list-item-data {
+  margin-right: 1rem;
+}
+
+.section-footer-link {
+  font-style: normal;
+}
+
+.section-footer-credits {
+  margin-top: 5rem;
+}
+
+.section-footer-text.section-footer-credits-text {
+  text-align: center;
+}
+
+.section-footer-list-item-link:hover,
+.section-footer-link:hover {
+  color: var(--white);
+}

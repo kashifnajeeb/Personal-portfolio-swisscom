@@ -1,0 +1,117 @@
+/*---------------------------
+Skills Section Start
+---------------------------*/
+.section-skills-data {
+  display: flex;
+  padding: 6.4rem 0;
+  flex-direction: column;
+  gap: 3rem;
+  width: 100%;
+}
+
+.section-skills-stats-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.section-skills-progress-bar {
+  width: 100%;
+  height: 0.8rem;
+  background-color: var(--helper-tint);
+  border-radius: 10rem;
+  position: relative;
+}
+
+.section-skills-progress-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: inherit;
+  background-color: var(--helper);
+  border-radius: 10rem;
+}
+
+.section-skills-progress-bar-2::before {
+  width: 99%;
+}
+
+.section-skills-progress-bar-3::before {
+  width: 95%;
+}
+
+.section-skills-progress-bar-4::before {
+  width: 90%;
+}
+
+.section-skills-progress-bar-5::before {
+  width: 80%;
+}
+
+.section-skills-progress-bar-6::before {
+  width: 60%;
+}
+
+.section-skills-progress-bar-7::before {
+  width: 50%;
+}
+
+.section-skills-progress-bar-8::before {
+  width: 10%;
+}
+
+.section-skills-stats-percentage {
+  position: absolute;
+  top: 1.8rem;
+  left: 100%;
+  width: 4rem;
+  height: 2rem;
+  background-color: var(--helper);
+  border-radius: 2rem;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: translateX(-50%);
+}
+
+.section-skills-progress-bar-2 .section-skills-stats-percentage {
+  left: 99%;
+}
+
+.section-skills-progress-bar-3 .section-skills-stats-percentage {
+  left: 95%;
+}
+
+.section-skills-progress-bar-4 .section-skills-stats-percentage {
+  left: 90%;
+}
+
+.section-skills-progress-bar-5 .section-skills-stats-percentage {
+  left: 80%;
+}
+
+.section-skills-progress-bar-6 .section-skills-stats-percentage {
+  left: 60%;
+}
+
+.section-skills-progress-bar-7 .section-skills-stats-percentage {
+  left: 50%;
+}
+
+.section-skills-progress-bar-8 .section-skills-stats-percentage {
+  left: 10%;
+}
+
+/* To Create a Caret */
+.section-skills-stats-percentage::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 0.8rem solid var(--helper);
+  border-color: transparent;
+  border-bottom-color: var(--helper);
+  top: -1.6rem;
+}

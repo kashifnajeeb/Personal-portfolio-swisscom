@@ -1,0 +1,46 @@
+/*---------------------------
+General CSS
+---------------------------*/
+h1,
+h2,
+h3 {
+  color: var(--heading);
+}
+
+h1 {
+  font-size: 6rem;
+}
+
+h1,
+h2 {
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+h3 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+p {
+  font-size: 1.65rem;
+  color: var(--para);
+  font-weight: 400;
+}
+
+li {
+  list-style: none;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+br {
+  content: "";
+  margin: 1rem;
+  display: block;
+}
