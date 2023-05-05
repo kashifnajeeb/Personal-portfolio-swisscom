@@ -2,7 +2,6 @@
 Footer Section Start
 ---------------------------*/
 .section-footer {
-  background: var(--para);
   transition: all 0.7s linear;
 }
 
