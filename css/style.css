@@ -12,15 +12,15 @@ html {
 }
 
 :root {
-  --heading: #fff;
-  --para: #fff;
+  --heading: #000;
+  --para: #281f7f;
   --para-tint: #edecff;
-  --white: #000;
-  --black: #fff;
+  --white: #fff;
+  --black: #000;
   --helper: #4f3dfe;
   --overlay-color: #3f31cb;
   --helper-tint: #cac5ff;
-  --bg: #000;
+  --bg: #edecff;
   --icon-bg: rgba(220, 216, 255, 0.2);
   --gradient: linear-gradient(0deg, rgb(114 100 254) 0%, rgb(149 139 254) 100%);
   --gradientSupport: -webkit-linear-gradient(
@@ -54,10 +54,6 @@ Reusable CSS
 
 .section:nth-child(odd) {
   background-color: var(--bg);
-}
-
-.section:nth-child(even) {
-  background-color: #191919;
 }
 
 .container {
