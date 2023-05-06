@@ -39,6 +39,7 @@ a:link {
   text-decoration: none;
 }
 
+/* Only works in chromium based browser */
 br {
   content: "";
   margin: 1rem;
