@@ -3,7 +3,6 @@ Header Section Start
 ---------------------------*/
 .section-header {
   padding: 0 4.8rem;
-  height: 10rem;
   background-color: var(--bg);
   display: flex;
   justify-content: space-between;
@@ -11,6 +10,7 @@ Header Section Start
   position: sticky;
   top: 0;
   z-index: 999;
+  height: 10rem;
   transition: all 0.3s linear;
 }
 
