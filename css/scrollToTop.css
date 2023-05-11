@@ -10,7 +10,7 @@ Scroll To Top
   height: 6rem;
   display: inline-block;
   padding: 1.5rem;
-  color: var(--white);
+  color: var(--para-tint);
   cursor: pointer;
   box-shadow: var(--shadow);
   transition: all 0.3s ease;

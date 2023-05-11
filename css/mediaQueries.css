@@ -84,7 +84,7 @@ Media Queries
   .section-header-navbar-link {
     display: block;
     line-height: 3rem;
-    color: var(--white) !important;
+    color: var(--para-tint) !important;
   }
 
   #section-header-check:checked ~ .section-header-navbar-links {
@@ -92,7 +92,7 @@ Media Queries
   }
 
   #section-header-check:checked + .section-header-checkbtn {
-    color: var(--white);
+    color: var(--para-tint);
   }
 
   #section-header-check:checked

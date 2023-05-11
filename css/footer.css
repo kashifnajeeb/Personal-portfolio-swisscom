@@ -5,6 +5,7 @@ Footer Section Start
   background-color: var(--para);
   transition: all 0.7s linear;
   color: var(--white);
+  padding: 9rem 0;
 }
 
 .section-footer-links {

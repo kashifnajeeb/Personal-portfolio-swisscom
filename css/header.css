@@ -1,3 +1,6 @@
+/* Load Ionicons library */
+@import url("https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
+
 /*---------------------------
 Header Section Start
 ---------------------------*/
@@ -17,6 +20,13 @@ Header Section Start
 .section-header-logo {
   font-size: 3rem;
   color: var(--black);
+}
+
+.section-header-navbar {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .section-header-navbar-links {
@@ -69,6 +79,46 @@ Header Section Start
 }
 
 #section-header-check,
-ion-icon[name="close-outline"] {
+ion-icon[name="close-outline"],
+#section-header-darkmode {
   display: none;
+}
+
+.section-header-darkmode-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-header-darkmode-switch {
+  position: relative;
+  display: inline-block;
+  width: 4rem;
+  height: 2rem;
+  background-color: var(--helper);
+  border-radius: 2rem;
+}
+
+.section-header-darkmode-switch::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Ionicons";
+  content: "\f4b6";
+  font-size: 2rem;
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  background-color: var(--white);
+  border-radius: 2rem;
+  transition: all 0.3s linear;
+}
+
+input[type="checkbox"]:checked + .section-header-darkmode-switch::after {
+  content: "\f467";
+  translate: 2rem 0;
+  height: 1.8rem;
+  color: var(--black);
 }
