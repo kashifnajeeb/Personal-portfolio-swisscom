@@ -104,6 +104,7 @@
     <script src="js/transition.js" defer></script>
     <script src="js/header.js" defer></script>
     <script src="js/scrollToTop.js" defer></script>
+    <script src="js/projectsTabs.js" defer></script>
   </head>
   <body>
     <!------------------ 
@@ -382,9 +383,28 @@
           <p class="section-projects-text common-text transition from-left">
             In my spare time, I work on many projects and polish my skills.
           </p>
+          <div class="section-projects-btns">
+            <div
+              class="btn section-projects-btn section-projects-all section-projects-btn-active"
+            >
+              All
+            </div>
+            <div
+              class="btn section-projects-btn"
+              data-section-projects-num="utility"
+            >
+              Utilities
+            </div>
+            <div
+              class="btn section-projects-btn"
+              data-section-projects-num="game"
+            >
+              Games
+            </div>
+          </div>
           <div class="section-projects-links grid grid-three-column">
             <figure
-              class="section-project-overlay image-overlay transition from-left"
+              class="section-project-overlay image-overlay transition from-left section-projects-btn--utility"
             >
               <img
                 class="section-projects-link-img image-overlay-img"
@@ -411,7 +431,7 @@
               </figcaption>
             </figure>
             <figure
-              class="section-project-overlay image-overlay transition from-right"
+              class="section-project-overlay image-overlay transition from-right section-projects-btn--game"
             >
               <img
                 class="section-projects-link-img image-overlay-img"
@@ -437,7 +457,7 @@
               </figcaption>
             </figure>
             <figure
-              class="section-project-overlay image-overlay transition from-right"
+              class="section-project-overlay image-overlay transition from-right section-projects-btn--game"
             >
               <img
                 class="section-projects-link-img image-overlay-img"
@@ -463,7 +483,7 @@
               </figcaption>
             </figure>
             <figure
-              class="section-project-overlay image-overlay transition from-left"
+              class="section-project-overlay image-overlay transition from-left section-projects-btn--utility"
             >
               <img
                 class="section-projects-link-img image-overlay-img"
@@ -489,7 +509,7 @@
               </figcaption>
             </figure>
             <figure
-              class="section-project-overlay image-overlay transition from-right"
+              class="section-project-overlay image-overlay transition from-right section-projects-btn--utility"
             >
               <img
                 class="section-projects-link-img image-overlay-img"
@@ -515,7 +535,7 @@
               </figcaption>
             </figure>
             <figure
-              class="section-project-overlay image-overlay transition from-right"
+              class="section-project-overlay image-overlay transition from-right section-projects-btn--utility"
             >
               <img
                 class="section-projects-link-img image-overlay-img"
@@ -541,7 +561,7 @@
               </figcaption>
             </figure>
             <figure
-              class="section-project-overlay image-overlay transition from-left"
+              class="section-project-overlay image-overlay transition from-left section-projects-btn--game"
             >
               <img
                 class="section-projects-link-img image-overlay-img"
@@ -567,7 +587,7 @@
               </figcaption>
             </figure>
             <figure
-              class="section-project-overlay image-overlay transition from-right"
+              class="section-project-overlay image-overlay transition from-right section-projects-btn--utility"
             >
               <img
                 class="section-projects-link-img image-overlay-img"
@@ -593,7 +613,7 @@
               </figcaption>
             </figure>
             <figure
-              class="section-project-overlay image-overlay transition from-right"
+              class="section-project-overlay image-overlay transition from-right section-projects-btn--utility"
             >
               <img
                 class="section-projects-link-img image-overlay-img"

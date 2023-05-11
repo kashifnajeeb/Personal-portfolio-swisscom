@@ -1,6 +1,22 @@
 /*---------------------------
 Projects Section Start
 ---------------------------*/
+.section-projects-btns {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2rem;
+  margin: 6.4rem 0;
+}
+
+.section-projects-btn-active {
+  transform: translateY(-1rem);
+}
+
+.section-projects-image-not-active {
+  display: none;
+}
+
 .section-projects-links {
   gap: 3.2rem;
 }
