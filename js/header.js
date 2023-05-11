@@ -4,19 +4,22 @@ class Header {
     this.header = document.querySelector(".section-header");
     this.mobileNavbarCheckbox = document.getElementById("section-header-check");
     this.headerLinks = document.querySelectorAll(".section-header-navbar-link");
-    // Checking header at Top
+    // Tracking header position
     this.lastScrollPosition = 0;
     this.isHeaderAtTop = true;
   }
 
   init() {
+    // Initial adjustment of header style
     this.adjustHeaderStyle(this.lastScrollPosition);
+    // Add event listeners
     this.addListeners();
   }
 
   addListeners() {
     // Scroll event listener
     window.addEventListener("scroll", () => {
+      // Check if mobile navbar is open
       if (this.mobileNavbarCheckbox.checked) {
         // Mobile navbar is open, do not apply scrolling logic
         return;
@@ -31,6 +34,7 @@ class Header {
       // Adjust the header style based on scroll position
       this.adjustHeaderStyle(currentScrollPosition);
 
+      // Update the last scroll position
       this.lastScrollPosition = currentScrollPosition;
     });
 
@@ -44,6 +48,7 @@ class Header {
   }
 
   showHideHeader(isScrollingUp) {
+    // Show or hide the header based on scroll direction
     this.header.style.top = isScrollingUp ? "0" : "-10rem";
   }
 
@@ -68,6 +73,7 @@ class Header {
   }
 
   setHeaderStyle(height, boxShadow, backdropFilter, backgroundColor) {
+    // Set the header style properties
     this.header.style.height = height;
     this.header.style.boxShadow = boxShadow;
     this.header.style.backdropFilter = backdropFilter;
