@@ -2,8 +2,9 @@
 Footer Section Start
 ---------------------------*/
 .section-footer {
-  background: var(--para);
+  background-color: var(--para);
   transition: all 0.7s linear;
+  color: var(--white);
 }
 
 .section-footer-links {
@@ -11,7 +12,7 @@ Footer Section Start
 }
 
 .section-footer-heading {
-  color: var(--white);
+  color: inherit;
   margin-bottom: 4rem;
 }
 
@@ -54,5 +55,5 @@ Footer Section Start
 
 .section-footer-list-item-link:hover,
 .section-footer-link:hover {
-  color: var(--white);
+  color: var(--para-tint);
 }

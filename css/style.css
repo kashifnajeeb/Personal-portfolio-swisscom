@@ -31,6 +31,7 @@ html {
   --shadow: 0rem 0rem 0.5rem 0rem rgb(8 6 25 / 20%);
   --shadow-support: rgb(63 49 203 / 30%);
   --secondary-shadow: 0 0 9.7rem -2.6rem var(--helper);
+  --backdropColor: "rgba(237, 236, 255, 0.3)";
 }
 
 ::-webkit-scrollbar {
@@ -45,11 +46,16 @@ html {
   background-clip: content-box;
 }
 
+body {
+  background-color: var(--bg);
+}
+
 /*---------------------------
 Reusable CSS
 ---------------------------*/
 .section {
   padding: 9rem 0;
+  background-color: var(--white);
 }
 
 .section:nth-child(odd) {
@@ -169,7 +175,7 @@ Reusable CSS
 }
 
 .image-overlay-description {
-  color: var(--helper-tint);
+  color: var(--white);
 }
 
 .image-overlay:hover .image-overlay-link {

@@ -11,6 +11,7 @@ Projects Section Start
 
 .section-projects-btn-active {
   transform: translateY(-1rem);
+  box-shadow: 0 2rem 2rem 0 var(--shadow-support);
 }
 
 .section-projects-image-not-active {

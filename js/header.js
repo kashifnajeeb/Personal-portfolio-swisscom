@@ -62,7 +62,7 @@ class Header {
         "8rem",
         "var(--shadow)",
         "saturate(180%) blur(20px)",
-        "rgba(237, 236, 255, 0.3)"
+        "var(--backdropColor)"
       );
       this.isHeaderAtTop = false;
     } else {

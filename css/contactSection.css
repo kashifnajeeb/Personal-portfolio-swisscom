@@ -40,6 +40,8 @@ Contact Section Start
   border: 0.2rem solid var(--helper);
   box-shadow: var(--shadow);
   font-size: 1.65rem;
+  background-color: var(--white);
+  color: var(--black);
 }
 
 textarea.section-contact-input {
