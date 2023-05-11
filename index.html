@@ -96,8 +96,10 @@
     <link rel="stylesheet" href="css/contactSection.css" type="text/css" />
     <link rel="stylesheet" href="css/footer.css" type="text/css" />
     <link rel="stylesheet" href="css/mediaQueries.css" type="text/css" />
+    <link rel="stylesheet" href="css/transition.css" type="text/css" />
     <!-- JS -->
     <script src="js/header.js" defer></script>
+    <script src="js/transition.js" defer></script>
   </head>
   <body>
     <!------------------ 
@@ -166,7 +168,7 @@
     ---------------------->
       <section class="section section-hero" id="hero">
         <div class="section-hero-data container grid grid-two-column">
-          <div class="section-hero-text">
+          <div class="section-hero-text transition from-left">
             <h1 class="section-hero-logo logo">Kashif Najeeb</h1>
             <p>
               I, Kashif Najeeb, who was born in 2004 in Lahore, Pakistan, first
@@ -177,7 +179,7 @@
               began utilizing a mouse and keyboard.
             </p>
           </div>
-          <div class="section-hero-image">
+          <div class="section-hero-image transition from-right">
             <img
               class="section-hero-img"
               loading="lazy"
@@ -192,30 +194,36 @@
     ---------------------->
       <section class="section section-about" id="about">
         <div class="section-about-data container">
-          <h2 class="section-about-heading common-heading">About me</h2>
+          <h2
+            class="section-about-heading common-heading transition from-bottom"
+          >
+            About me
+          </h2>
           <div class="section-about-content grid grid-two-column">
-            <video
-              class="video-js section-about-video"
-              controls
-              preload="none"
-              poster="media/compressed-images/20min-video-thumbnail.webp"
-              data-setup="{}"
-            >
-              <source
-                src="https://nggwebdevelopementcourse.kashifnajeeb.com/20minvideo.mp4"
-                type="video/mp4"
-              />
-              <p class="vjs-no-js">
-                To view this video please enable JavaScript, and consider
-                upgrading to a web browser that
-                <a
-                  href="https://videojs.com/html5-video-support/"
-                  target="_blank"
-                  >supports HTML5 video</a
-                >
-              </p>
-            </video>
-            <div class="section-about-text">
+            <div class="section-about-video transition from-left">
+              <video
+                class="video-js section-about-video-player"
+                controls
+                preload="none"
+                poster="media/compressed-images/20min-video-thumbnail.webp"
+                data-setup="{}"
+              >
+                <source
+                  src="https://nggwebdevelopementcourse.kashifnajeeb.com/20minvideo.mp4"
+                  type="video/mp4"
+                />
+                <p class="vjs-no-js">
+                  To view this video please enable JavaScript, and consider
+                  upgrading to a web browser that
+                  <a
+                    href="https://videojs.com/html5-video-support/"
+                    target="_blank"
+                    >supports HTML5 video</a
+                  >
+                </p>
+              </video>
+            </div>
+            <div class="section-about-text transition from-right">
               <p class="section-about-text-para">
                 I, Kashif Najeeb, who was born in 2004 in Lahore, Pakistan,
                 first attended one of the best schools in the city, Lahore
@@ -261,14 +269,18 @@
     ---------------------->
       <section class="section section-skills">
         <div class="section-skills-data container">
-          <h2 class="section-skills-heading common-heading">Web Dev skills</h2>
-          <div class="section-skills-stats">
+          <h2
+            class="section-skills-heading common-heading transition from-bottom"
+          >
+            Web Dev skills
+          </h2>
+          <div class="section-skills-stats transition from-top">
             <h3 class="section-skills-stats-heading">HTML</h3>
             <div class="section-skills-progress-bar">
               <span class="section-skills-stats-percentage">100%</span>
             </div>
           </div>
-          <div class="section-skills-stats">
+          <div class="section-skills-stats transition from-top">
             <h3 class="section-skills-stats-heading">CSS</h3>
             <div
               class="section-skills-progress-bar section-skills-progress-bar-2"
@@ -276,7 +288,7 @@
               <span class="section-skills-stats-percentage">99%</span>
             </div>
           </div>
-          <div class="section-skills-stats">
+          <div class="section-skills-stats transition from-top">
             <h3 class="section-skills-stats-heading">JavaScript</h3>
             <div
               class="section-skills-progress-bar section-skills-progress-bar-3"
@@ -284,7 +296,7 @@
               <span class="section-skills-stats-percentage">95%</span>
             </div>
           </div>
-          <div class="section-skills-stats">
+          <div class="section-skills-stats transition from-top">
             <h3 class="section-skills-stats-heading">React</h3>
             <div
               class="section-skills-progress-bar section-skills-progress-bar-4"
@@ -292,7 +304,7 @@
               <span class="section-skills-stats-percentage">90%</span>
             </div>
           </div>
-          <div class="section-skills-stats">
+          <div class="section-skills-stats transition from-top">
             <h3 class="section-skills-stats-heading">Next.js</h3>
             <div
               class="section-skills-progress-bar section-skills-progress-bar-5"
@@ -300,7 +312,7 @@
               <span class="section-skills-stats-percentage">80%</span>
             </div>
           </div>
-          <div class="section-skills-stats">
+          <div class="section-skills-stats transition from-top">
             <h3 class="section-skills-stats-heading">MySQL</h3>
             <div
               class="section-skills-progress-bar section-skills-progress-bar-6"
@@ -308,7 +320,7 @@
               <span class="section-skills-stats-percentage">60%</span>
             </div>
           </div>
-          <div class="section-skills-stats">
+          <div class="section-skills-stats transition from-top">
             <h3 class="section-skills-stats-heading">PHP</h3>
             <div
               class="section-skills-progress-bar section-skills-progress-bar-7"
@@ -316,7 +328,7 @@
               <span class="section-skills-stats-percentage">50%</span>
             </div>
           </div>
-          <div class="section-skills-stats">
+          <div class="section-skills-stats transition from-top">
             <h3 class="section-skills-stats-heading">MongoDB</h3>
             <div
               class="section-skills-progress-bar section-skills-progress-bar-8"
@@ -331,17 +343,21 @@
     ---------------------->
       <section class="section section-hobbies" id="hobbies">
         <div class="section-hobbies-data container">
-          <h2 class="section-hobbies-heading common-heading">Hobbies</h2>
+          <h2
+            class="section-hobbies-heading common-heading transition from-bottom"
+          >
+            Hobbies
+          </h2>
           <ul class="section-hobbies-list">
-            <li class="section-hobbies-list-item">
+            <li class="section-hobbies-list-item transition from-top">
               <p class="section-hobbies-list-item-text">Programming Websites</p>
             </li>
-            <li class="section-hobbies-list-item">
+            <li class="section-hobbies-list-item transition from-top">
               <p class="section-hobbies-list-item-text">
                 Getting Information about latest Technology
               </p>
             </li>
-            <li class="section-hobbies-list-item">
+            <li class="section-hobbies-list-item transition from-top">
               <p class="section-hobbies-list-item-text">
                 Improving and learning new Programming languages
               </p>
@@ -354,12 +370,18 @@
     ---------------------->
       <section class="section section-projects" id="projects">
         <div class="section-projects-data container">
-          <h2 class="section-projects-heading common-heading">Projects</h2>
-          <p class="section-projects-text common-text">
+          <h2
+            class="section-projects-heading common-heading transition from-bottom"
+          >
+            Projects
+          </h2>
+          <p class="section-projects-text common-text transition from-right">
             In my spare time, I work on many projects and polish my skills.
           </p>
           <div class="section-projects-links grid grid-three-column">
-            <figure class="section-project-overlay image-overlay">
+            <figure
+              class="section-project-overlay image-overlay transition from-left"
+            >
               <img
                 class="section-projects-link-img image-overlay-img"
                 loading="lazy"
@@ -384,7 +406,9 @@
                 </a>
               </figcaption>
             </figure>
-            <figure class="section-project-overlay image-overlay">
+            <figure
+              class="section-project-overlay image-overlay transition from-right"
+            >
               <img
                 class="section-projects-link-img image-overlay-img"
                 loading="lazy"
@@ -408,7 +432,9 @@
                 </a>
               </figcaption>
             </figure>
-            <figure class="section-project-overlay image-overlay">
+            <figure
+              class="section-project-overlay image-overlay transition from-right"
+            >
               <img
                 class="section-projects-link-img image-overlay-img"
                 loading="lazy"
@@ -432,7 +458,9 @@
                 </a>
               </figcaption>
             </figure>
-            <figure class="section-project-overlay image-overlay">
+            <figure
+              class="section-project-overlay image-overlay transition from-left"
+            >
               <img
                 class="section-projects-link-img image-overlay-img"
                 loading="lazy"
@@ -456,7 +484,9 @@
                 </a>
               </figcaption>
             </figure>
-            <figure class="section-project-overlay image-overlay">
+            <figure
+              class="section-project-overlay image-overlay transition from-right"
+            >
               <img
                 class="section-projects-link-img image-overlay-img"
                 loading="lazy"
@@ -480,7 +510,9 @@
                 </a>
               </figcaption>
             </figure>
-            <figure class="section-project-overlay image-overlay">
+            <figure
+              class="section-project-overlay image-overlay transition from-right"
+            >
               <img
                 class="section-projects-link-img image-overlay-img"
                 loading="lazy"
@@ -504,7 +536,9 @@
                 </a>
               </figcaption>
             </figure>
-            <figure class="section-project-overlay image-overlay">
+            <figure
+              class="section-project-overlay image-overlay transition from-left"
+            >
               <img
                 class="section-projects-link-img image-overlay-img"
                 loading="lazy"
@@ -528,7 +562,9 @@
                 </a>
               </figcaption>
             </figure>
-            <figure class="section-project-overlay image-overlay">
+            <figure
+              class="section-project-overlay image-overlay transition from-right"
+            >
               <img
                 class="section-projects-link-img image-overlay-img"
                 loading="lazy"
@@ -552,7 +588,9 @@
                 </a>
               </figcaption>
             </figure>
-            <figure class="section-project-overlay image-overlay">
+            <figure
+              class="section-project-overlay image-overlay transition from-right"
+            >
               <img
                 class="section-projects-link-img image-overlay-img"
                 loading="lazy"
@@ -584,10 +622,14 @@
     ---------------------->
       <section class="section section-photos" id="photos">
         <div class="section-photos-data container">
-          <h2 class="section-photos-heading common-heading">Photos</h2>
+          <h2
+            class="section-photos-heading common-heading transition from-bottom"
+          >
+            Photos
+          </h2>
           <div class="grid section-photos-gallery">
             <div
-              class="section-photos-gallery-item section-photos-gallery-item-1"
+              class="section-photos-gallery-item section-photos-gallery-item-1 transition"
             >
               <a
                 href="media/compressed-images/kashifnajeeb.webp"
@@ -602,7 +644,7 @@
               </a>
             </div>
             <div
-              class="section-photos-gallery-item section-photos-gallery-item-2"
+              class="section-photos-gallery-item section-photos-gallery-item-2 transition"
             >
               <a
                 href="media/compressed-images/kashifnajeeb2020.webp"
@@ -617,7 +659,7 @@
               </a>
             </div>
             <div
-              class="section-photos-gallery-item section-photos-gallery-item-3"
+              class="section-photos-gallery-item section-photos-gallery-item-3 transition"
             >
               <a
                 href="media/compressed-images/kashifnajeeb052020.webp"
@@ -632,7 +674,7 @@
               </a>
             </div>
             <div
-              class="section-photos-gallery-item section-photos-gallery-item-4"
+              class="section-photos-gallery-item section-photos-gallery-item-4 transition"
             >
               <a
                 href="media/compressed-images/kashifnajeeb2019.webp"
@@ -647,7 +689,7 @@
               </a>
             </div>
             <div
-              class="section-photos-gallery-item section-photos-gallery-item-5"
+              class="section-photos-gallery-item section-photos-gallery-item-5 transition"
             >
               <a
                 href="media/compressed-images/kashifnajeeb042019.webp"
@@ -662,7 +704,7 @@
               </a>
             </div>
             <div
-              class="section-photos-gallery-item section-photos-gallery-item-6"
+              class="section-photos-gallery-item section-photos-gallery-item-6 transition"
             >
               <a
                 href="media/compressed-images/kashifnajeeb032019.webp"
@@ -677,7 +719,7 @@
               </a>
             </div>
             <div
-              class="section-photos-gallery-item section-photos-gallery-item-7"
+              class="section-photos-gallery-item section-photos-gallery-item-7 transition"
             >
               <a
                 href="media/compressed-images/kashifnajeeb2017.webp"
@@ -692,7 +734,7 @@
               </a>
             </div>
             <div
-              class="section-photos-gallery-item section-photos-gallery-item-8"
+              class="section-photos-gallery-item section-photos-gallery-item-8 transition"
             >
               <a
                 href="media/compressed-images/kashifnajeeb2007.webp"
@@ -714,11 +756,15 @@
     ---------------------->
       <section class="section section-contact" id="contact">
         <div class="section-contact-data container">
-          <h2 class="section-contact-heading common-heading">Contact me!</h2>
+          <h2
+            class="section-contact-heading common-heading transition from-bottom"
+          >
+            Contact me!
+          </h2>
           <div class="grid grid-two-column">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21575.750325349058!2d9.030061325173763!3d47.471037614750585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479aebc2a107cf7b%3A0x23cebff4e805181b!2sWil!5e0!3m2!1sen!2sch!4v1682731558129!5m2!1sen!2sch"
-              class="section-contact-map"
+              class="section-contact-map transition from-left"
               style="border: 0"
               allowfullscreen=""
               loading="lazy"
@@ -729,7 +775,7 @@
               method="POST"
               class="section-contact-form"
             >
-              <div class="section-contact-input-field">
+              <div class="section-contact-input-field transition from-right">
                 <label class="section-contact-input-label" for="name"
                   >Name:</label
                 >
@@ -742,7 +788,7 @@
                   required
                 />
               </div>
-              <div class="section-contact-input-field">
+              <div class="section-contact-input-field transition from-right">
                 <label class="section-contact-input-label" for="email"
                   >Email:</label
                 >
@@ -755,7 +801,7 @@
                   required
                 />
               </div>
-              <div class="section-contact-input-field">
+              <div class="section-contact-input-field transition from-right">
                 <label class="section-contact-input-label" for="subject"
                   >Subject:</label
                 >
@@ -768,7 +814,7 @@
                   required
                 />
               </div>
-              <div class="section-contact-input-field">
+              <div class="section-contact-input-field transition from-right">
                 <label class="section-contact-input-label" for="message"
                   >Message:</label
                 >
@@ -781,7 +827,7 @@
                 ></textarea>
               </div>
               <input
-                class="section-contact-form-submit-btn btn"
+                class="section-contact-form-submit-btn btn transition from-bottom"
                 type="submit"
                 value="Send"
               />
@@ -792,11 +838,11 @@
     </main>
     <hr />
     <!---------------------------
-     Footer Section Start 
+     Footer Section Start
     ---------------------------->
     <footer class="section section-footer">
       <div class="section-footer-data container grid grid-three-column">
-        <div class="section-footer-about">
+        <div class="section-footer-about transition from-left">
           <h3 class="section-footer-heading">About</h3>
           <p class="section-footer-text">
             I, Kashif Najeeb, who was born in 2004 in Lahore, Pakistan, first
@@ -808,7 +854,7 @@
           </p>
         </div>
         <!-- End -->
-        <div class="section-footer-links">
+        <div class="section-footer-links transition from-bottom">
           <h3 class="section-footer-heading">Links</h3>
           <ul class="section-footer-list">
             <li class="section-footer-list-item">
@@ -858,7 +904,7 @@
           </ul>
         </div>
         <!-- end -->
-        <div class="section-footer-address">
+        <div class="section-footer-address transition from-right">
           <h3 class="section-footer-heading">Have a Question?</h3>
           <address class="section-footer-address-data">
             <div class="section-footer-address-data-location">
@@ -896,7 +942,7 @@
         </div>
       </div>
       <div class="container">
-        <div class="section-footer-credits">
+        <div class="section-footer-credits transition from-top">
           <p class="section-footer-text section-footer-credits-text">
             Copyright &copy; 2023 Kashif Najeeb. All Rights Reserved.
           </p>

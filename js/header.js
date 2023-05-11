@@ -1,3 +1,6 @@
+//---------------
+//  Header
+//---------------
 class Header {
   constructor() {
     // Selectors
