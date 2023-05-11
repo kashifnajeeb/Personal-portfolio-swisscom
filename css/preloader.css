@@ -1,0 +1,45 @@
+#preloader {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--white);
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  display: block;
+  width: 50rem;
+  height: 1rem;
+  border-radius: 3rem;
+  background-color: var(--bg);
+  position: relative;
+}
+
+.loader::before {
+  content: "";
+  position: absolute;
+  background: var(--helper);
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  border-radius: 3rem;
+  animation: loading 1s ease-in-out infinite;
+}
+
+@keyframes loading {
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 0;
+    right: 0;
+    left: unset;
+  }
+}
