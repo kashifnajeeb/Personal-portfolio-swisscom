@@ -51,6 +51,13 @@ Media Queries
     color: var(--white);
   }
 
+  /* Removing the underline effect */
+  .section-header-navbar-link::after,
+  .section-header-navbar-link:hover::after,
+  .section-header-navbar-link:active::after {
+    display: none;
+  }
+
   .section-header-checkbtn {
     display: block;
     z-index: 999;

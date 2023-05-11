@@ -11,6 +11,7 @@ Header Section Start
   position: sticky;
   top: 0;
   z-index: 999;
+  transition: all 0.3s linear;
 }
 
 .section-header-logo {
