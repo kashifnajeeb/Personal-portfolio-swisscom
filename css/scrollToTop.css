@@ -18,15 +18,14 @@ Scroll To Top
   background-color: var(--helper);
 }
 
+.scroll-to-top:hover {
+  box-shadow: 0 2rem 2rem 0 var(--shadow-support);
+}
+
 .scroll-to-top-icon {
   width: 100%;
   height: 100%;
   animation: goToTop 1.2s linear infinite alternate-reverse;
-}
-
-.scroll-to-top-icon:hover,
-.scroll-to-top-icon:active {
-  box-shadow: 0 2rem 2rem 0 var(--shadow-support);
 }
 
 @keyframes goToTop {

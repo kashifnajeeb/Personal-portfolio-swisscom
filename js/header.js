@@ -56,7 +56,7 @@ class Header {
   }
 
   adjustHeaderStyle(currentScrollPosition) {
-    if (currentScrollPosition > 5) {
+    if (currentScrollPosition > 0) {
       // Header is not at the top and scrolling is more than 5 pixels
       this.setHeaderStyle(
         "8rem",
