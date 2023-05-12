@@ -15,6 +15,7 @@ Header Section Start
   z-index: 999;
   height: 10rem;
   transition: all 0.3s linear;
+  overflow: hidden;
 }
 
 .section-header-logo {

@@ -3,8 +3,8 @@ Scroll To Top
 ---------------------------*/
 .scroll-to-top {
   position: fixed;
-  right: 2%;
-  bottom: 5%;
+  right: 2rem;
+  bottom: 2rem;
   z-index: 1;
   width: 6rem;
   height: 6rem;

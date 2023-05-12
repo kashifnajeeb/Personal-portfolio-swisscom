@@ -1,6 +1,6 @@
 .transition {
   opacity: 0;
-  transition: opacity, transform 0.5s linear;
+  transition: opacity 0.5s linear, transform 0.5s linear;
 }
 
 .transition.from-left {
@@ -21,6 +21,6 @@
 
 .transition.in-view {
   opacity: 1;
-  transform: translateX(0);
+  transform: translateX(0) translateY(0);
   transition: all 0.8s linear;
 }
