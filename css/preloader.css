@@ -13,7 +13,7 @@
 
 .loader {
   display: block;
-  width: 50rem;
+  width: 50%;
   height: 1rem;
   border-radius: 3rem;
   background-color: var(--bg);
