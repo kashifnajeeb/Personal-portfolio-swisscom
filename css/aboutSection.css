@@ -1,9 +1,13 @@
 /*---------------------------
 About Section Start
 ---------------------------*/
+.section-about-video,
 .section-about-video-player {
   width: 100%;
   height: 100%;
+}
+
+.section-about-video {
   box-shadow: var(--secondary-shadow);
   border-radius: 2rem;
   overflow: hidden;
