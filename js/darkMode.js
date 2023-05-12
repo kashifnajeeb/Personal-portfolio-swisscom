@@ -64,23 +64,31 @@ class DarkTheme {
   }
 }
 
-// Create an instance of DarkTheme
-const darkTheme = new DarkTheme();
+document.addEventListener("DOMContentLoaded", function () {
+  // Create an instance of DarkTheme
+  const darkTheme = new DarkTheme();
 
-// Apply or remove the dark theme based on the checkbox state
-function handleDarkModeToggle() {
-  const isChecked = darkModeCheckbox.checked;
-  const configurations = JSON.parse(localStorage.getItem("configurations"));
-  configurations.darkMode = isChecked;
-  localStorage.setItem("configurations", JSON.stringify(configurations));
+  // Apply or remove the dark theme based on the checkbox state
+  function handleDarkModeToggle() {
+    const isChecked = darkModeCheckbox.checked;
+    let configurations = JSON.parse(localStorage.getItem("configurations"));
+
+    if (!configurations) {
+      configurations = {};
+    }
+
+    configurations.darkMode = isChecked;
+    localStorage.setItem("configurations", JSON.stringify(configurations));
+    darkTheme.applyTheme();
+  }
+
+  // Add event listener to the checkbox for applying/removing the theme dynamically
+  const darkModeCheckbox = document.getElementById("section-header-darkmode");
+  darkModeCheckbox.addEventListener("change", handleDarkModeToggle);
+
+  // Apply the initial theme based on the stored value in localStorage
+  const configurations =
+    JSON.parse(localStorage.getItem("configurations")) || {};
+  darkModeCheckbox.checked = configurations.darkMode;
   darkTheme.applyTheme();
-}
-
-// Add event listener to the checkbox for applying/removing the theme dynamically
-const darkModeCheckbox = document.getElementById("section-header-darkmode");
-darkModeCheckbox.addEventListener("change", handleDarkModeToggle);
-
-// Apply the initial theme based on the stored value in localStorage
-const configurations = JSON.parse(localStorage.getItem("configurations")) || {};
-darkModeCheckbox.checked = configurations.darkMode;
-darkTheme.applyTheme();
+});
