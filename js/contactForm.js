@@ -66,14 +66,7 @@ class FormValidator {
     });
 
     formValid = formValid && hasTouchedInput && this.validateEmail(); // Check if email is valid
-    this.submitButton.disabled = !formValid;
-    // Disable submit button if form is not valid or there are untouched required inputs
-    if (!formValid || hasUntouchedRequiredInput) {
-      this.submitButton.disabled = true;
-    } else {
-      // Enable submit button
-      this.submitButton.disabled = false;
-    }
+    this.submitButton.disabled = !formValid || hasUntouchedRequiredInput; // Disable submit button if form is not valid or there are untouched required inputs
 
     return formValid;
   }
@@ -102,12 +95,13 @@ class FormValidator {
 
   handleInput(input) {
     this.touchedInputs.add(input); // Mark the input as touched
+
+    clearTimeout(this.emailValidationTimeout); // Clear the previous timeout, if any
+
     if (input.name === "email") {
-      clearTimeout(this.emailValidationTimeout); // Clear the previous timeout, if any
       this.emailValidationTimeout = setTimeout(() => {
-        this.validateEmail(); // Validate email after 3 seconds
         this.validateForm(); // Validate the entire form
-      }, 1000);
+      }, 1000); // Wait for 3 seconds before validating email
     } else {
       const value = input.value.trim();
       const isValid = value !== "";
@@ -124,6 +118,7 @@ class FormValidator {
 
   handleFocus(input) {
     this.touchedInputs.delete(input);
+
     // Revalidate email input if it is being focused
     if (input === this.emailInput) {
       this.validateEmail();
