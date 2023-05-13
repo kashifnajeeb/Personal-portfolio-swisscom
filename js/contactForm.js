@@ -1,3 +1,6 @@
+//---------------
+//  Contact Form
+//---------------
 class FormValidator {
   constructor(form) {
     this.form = form;
@@ -99,9 +102,22 @@ class FormValidator {
     clearTimeout(this.emailValidationTimeout); // Clear the previous timeout, if any
 
     if (input.name === "email") {
-      this.emailValidationTimeout = setTimeout(() => {
-        this.validateForm(); // Validate the entire form
-      }, 1000); // Wait for 3 seconds before validating email
+      const value = input.value.trim();
+      const isValid = value !== "";
+
+      if (!isValid) {
+        this.showError(input, "This field is required.");
+      } else {
+        this.hideError(input);
+      }
+
+      if (isValid && this.emailValidationTimeout === null) {
+        this.validateEmail(); // Validate the email immediately if it is not empty
+      } else {
+        this.emailValidationTimeout = setTimeout(() => {
+          this.validateEmail(); // Validate the email after 1 second of inactivity
+        }, 1000);
+      }
     } else {
       const value = input.value.trim();
       const isValid = value !== "";
