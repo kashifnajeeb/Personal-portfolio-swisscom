@@ -58,7 +58,7 @@ textarea.section-contact-input {
 
 .section-contact-form-submit-btn {
   align-self: center;
-  width: 20rem;
+  width: 100%;
 }
 
 .section-contact-form-submit-btn:disabled {

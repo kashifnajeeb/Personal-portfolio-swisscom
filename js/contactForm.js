@@ -5,6 +5,7 @@ class FormValidator {
     this.submitButton = form.querySelector('input[type="submit"]');
     this.touchedInputs = new Set();
     this.emailInput = this.inputs.find((input) => input.name === "email"); // Initialize emailInput as a class property
+    this.emailValidationTimeout = null; // Variable to store the email validation timeout
 
     this.form.addEventListener("submit", this.handleSubmit.bind(this));
     this.inputs.forEach((input) => {
@@ -24,9 +25,7 @@ class FormValidator {
       message: "Please enter a message:",
     };
 
-    const labelElement = input.parentNode.querySelector(
-      ".section-contact-input-label"
-    );
+    const labelElement = input.parentNode.querySelector("label");
     const originalLabel =
       labelElement.dataset.originalLabel || labelElement.textContent;
     labelElement.textContent = errorMessages[input.name] || message;
@@ -35,9 +34,7 @@ class FormValidator {
   }
 
   hideError(input) {
-    const labelElement = input.parentNode.querySelector(
-      ".section-contact-input-label"
-    );
+    const labelElement = input.parentNode.querySelector("label");
     const originalLabel =
       labelElement.dataset.originalLabel || labelElement.textContent;
     labelElement.textContent = originalLabel;
@@ -69,11 +66,13 @@ class FormValidator {
     });
 
     formValid = formValid && hasTouchedInput && this.validateEmail(); // Check if email is valid
-    this.submitButton.disabled = !formValid || hasUntouchedRequiredInput; // Disable submit button if form is not valid or there are untouched required inputs
-
-    // Disable submit button on first load if form is not valid
-    if (!hasTouchedInput || !formValid) {
+    this.submitButton.disabled = !formValid;
+    // Disable submit button if form is not valid or there are untouched required inputs
+    if (!formValid || hasUntouchedRequiredInput) {
       this.submitButton.disabled = true;
+    } else {
+      // Enable submit button
+      this.submitButton.disabled = false;
     }
 
     return formValid;
@@ -102,9 +101,23 @@ class FormValidator {
   }
 
   handleInput(input) {
+    this.touchedInputs.add(input); // Mark the input as touched
     if (input.name === "email") {
-      this.validateEmail();
+      clearTimeout(this.emailValidationTimeout); // Clear the previous timeout, if any
+      this.emailValidationTimeout = setTimeout(() => {
+        this.validateEmail(); // Validate email after 3 seconds
+        this.validateForm(); // Validate the entire form
+      }, 1000);
     } else {
+      const value = input.value.trim();
+      const isValid = value !== "";
+
+      if (!isValid) {
+        this.showError(input, "This field is required.");
+      } else {
+        this.hideError(input);
+      }
+
       this.validateForm();
     }
   }
