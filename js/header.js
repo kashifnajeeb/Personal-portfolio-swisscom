@@ -1,63 +1,57 @@
-//---------------
-//  Header
-//---------------
 class Header {
   constructor() {
-    // Selectors
+    // Header properties
     this.header = document.querySelector(".section-header");
     this.mobileNavbarCheckbox = document.getElementById("section-header-check");
     this.headerLinks = document.querySelectorAll(".section-header-navbar-link");
-    // Tracking header position
     this.lastScrollPosition = 0;
     this.isHeaderAtTop = true;
+
+    // Navbar properties
+    this.navbarLinks = document.querySelectorAll(".section-header-navbar-link");
+    this.scrollPosition = 0;
+    this.maxVisibleArea = 0;
+    this.activeLink = null;
   }
 
   init() {
-    // Initial adjustment of header style
-    this.adjustHeaderStyle(this.lastScrollPosition);
-    // Add event listeners
-    this.addListeners();
+    this.initHeader();
+    this.initNavbar();
   }
 
-  addListeners() {
-    // Scroll event listener
+  initHeader() {
+    this.adjustHeaderStyle(this.lastScrollPosition);
+    this.addHeaderEventListeners();
+  }
+
+  addHeaderEventListeners() {
     window.addEventListener("scroll", () => {
-      // Check if mobile navbar is open
       if (this.mobileNavbarCheckbox.checked) {
-        // Mobile navbar is open, do not apply scrolling logic
         return;
       }
 
       const currentScrollPosition = window.pageYOffset;
       const isScrollingUp = currentScrollPosition < this.lastScrollPosition;
 
-      // Show or hide the header based on scroll direction
       this.showHideHeader(isScrollingUp);
-
-      // Adjust the header style based on scroll position
       this.adjustHeaderStyle(currentScrollPosition);
 
-      // Update the last scroll position
       this.lastScrollPosition = currentScrollPosition;
     });
 
-    // Click event listener for header links
     this.headerLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        // Uncheck the responsive header checkbox
         this.mobileNavbarCheckbox.checked = false;
       });
     });
   }
 
   showHideHeader(isScrollingUp) {
-    // Show or hide the header based on scroll direction
     this.header.style.top = isScrollingUp ? "0" : "-10rem";
   }
 
   adjustHeaderStyle(currentScrollPosition) {
     if (currentScrollPosition > 0) {
-      // Header is not at the top and scrolling is more than 5 pixels
       this.setHeaderStyle(
         "8rem",
         "var(--shadow)",
@@ -66,9 +60,7 @@ class Header {
       );
       this.isHeaderAtTop = false;
     } else {
-      // Header is at the top or scrolling is less than or equal to 5 pixels
       if (!this.isHeaderAtTop) {
-        // Header was not at the top, reset styling
         this.setHeaderStyle("10rem", "none", "none", "var(--bg)");
         this.isHeaderAtTop = true;
       }
@@ -76,15 +68,74 @@ class Header {
   }
 
   setHeaderStyle(height, boxShadow, backdropFilter, backgroundColor) {
-    // Set the header style properties
     this.header.style.height = height;
     this.header.style.boxShadow = boxShadow;
     this.header.style.backdropFilter = backdropFilter;
     this.header.style.webkitBackdropFilter = backdropFilter;
     this.header.style.backgroundColor = backgroundColor;
   }
+
+  initNavbar() {
+    this.addNavbarEventListeners();
+    this.setActiveLink();
+  }
+
+  addNavbarEventListeners() {
+    window.addEventListener("scroll", () => this.setActiveLink());
+    window.addEventListener("DOMContentLoaded", () => this.setActiveLink());
+  }
+
+  setActiveLink() {
+    this.scrollPosition = window.scrollY;
+    this.maxVisibleArea = 0;
+    this.activeLink = null;
+
+    this.navbarLinks.forEach((link) => {
+      const targetSectionId = link.getAttribute("href").substring(2);
+      const targetSection = document.getElementById(targetSectionId);
+
+      if (
+        this.isInViewport(targetSection) ||
+        (targetSection.offsetTop <= this.scrollPosition &&
+          targetSection.offsetTop + targetSection.offsetHeight >
+            this.scrollPosition)
+      ) {
+        const visibleArea = this.calculateVisibleArea(targetSection);
+
+        if (visibleArea > this.maxVisibleArea) {
+          this.maxVisibleArea = visibleArea;
+          this.activeLink = link;
+        }
+      }
+    });
+
+    this.navbarLinks.forEach((link) => {
+      if (link === this.activeLink) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+  isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+      rect.top >= 0 &&
+      rect.bottom <=
+        (window.innerHeight || document.documentElement.clientHeight)
+    );
+  }
+
+  calculateVisibleArea(element) {
+    const rect = element.getBoundingClientRect();
+    const viewportHeight =
+      window.innerHeight || document.documentElement.clientHeight;
+    const height =
+      Math.min(rect.bottom, viewportHeight) - Math.max(rect.top, 0);
+    return height * rect.width;
+  }
 }
 
-// Initialize the header functionality
+// Initialize the header and navbar functionality
 const header = new Header();
 header.init();
