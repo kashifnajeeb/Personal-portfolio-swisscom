@@ -68,8 +68,8 @@ class FormValidator {
       }
     });
 
-    formValid = formValid && hasTouchedInput && this.validateEmail();
-    this.submitButton.disabled = !formValid && !hasUntouchedRequiredInput;
+    formValid = formValid && hasTouchedInput && this.validateEmail(); // Check if email is valid
+    this.submitButton.disabled = !formValid || hasUntouchedRequiredInput; // Disable submit button if form is not valid or there are untouched required inputs
 
     // Disable submit button on first load if form is not valid
     if (!hasTouchedInput || !formValid) {
@@ -77,10 +77,6 @@ class FormValidator {
     }
 
     return formValid;
-  }
-
-  allInputsValid() {
-    return this.inputs.every((input) => input.value.trim() !== "");
   }
 
   validateEmail() {
@@ -162,10 +158,6 @@ class FormValidator {
     } catch (error) {
       this.submitButton.value = "Oops! Something went wrong. Please try again.";
     }
-  }
-
-  displayErrorMessage(message) {
-    this.submitButton.value = message;
   }
 }
 
