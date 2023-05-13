@@ -111,7 +111,6 @@ class FormValidator {
 
   handleFocus(input) {
     this.touchedInputs.delete(input);
-
     // Revalidate email input if it is being focused
     if (input === this.emailInput) {
       this.validateEmail();
@@ -120,7 +119,6 @@ class FormValidator {
 
   async handleSubmit(event) {
     event.preventDefault();
-
     if (!this.validateForm()) {
       return;
     }
@@ -144,10 +142,10 @@ class FormValidator {
         this.inputs.forEach((input) => this.hideError(input));
         this.submitButton.value = "Message Sent";
       } else if (responseData.errors) {
-        responseData.errors.forEach((error) => {
-          this.submitButton.value = error.message;
-        });
-        this.submitButton.value = "Send";
+        const errorMessage = responseData.errors
+          .map((error) => error.message)
+          .join(", ");
+        this.submitButton.value = errorMessage;
       } else {
         this.submitButton.value =
           "Oops! Something went wrong. Please try again.";
