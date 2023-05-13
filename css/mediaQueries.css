@@ -1,7 +1,7 @@
 /*---------------------------
 Media Queries
 ---------------------------*/
-/* For 1500px */
+/* For 1520px */
 @media (max-width: 95em) {
   .container {
     max-width: 130rem;
@@ -13,10 +13,17 @@ Media Queries
   }
 }
 
+/* For 1312px */
+@media (max-width: 82em) {
+  html {
+    font-size: 55%;
+  }
+}
+
 /* For 1200px */
 @media (max-width: 75em) {
   html {
-    font-size: 56.25%;
+    font-size: 50%;
   }
 
   .container {
@@ -35,10 +42,10 @@ Media Queries
   }
 }
 
-/* For 980px */
-@media (max-width: 60em) {
+/* For 1050px */
+@media (max-width: 65.625em) {
   html {
-    font-size: 50%;
+    font-size: 45%;
   }
 
   .container {
@@ -78,7 +85,7 @@ Media Queries
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    gap: 8rem;
+    gap: 4rem;
   }
 
   .section-header-navbar-link {
