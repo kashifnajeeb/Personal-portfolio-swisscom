@@ -139,6 +139,10 @@ class FormValidator {
       );
       this.submitButton.value = "Send";
     }
+
+    setTimeout(() => {
+      this.submitButton.value = "Send";
+    }, 3000); // Revert back to "Send" after 3 seconds
   }
 
   displayErrorMessage(message) {
