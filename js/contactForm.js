@@ -4,6 +4,7 @@ class FormValidator {
     this.inputs = Array.from(form.querySelectorAll("input, textarea"));
     this.submitButton = form.querySelector('input[type="submit"]');
     this.touchedInputs = new Set();
+    this.emailInput = this.inputs.find((input) => input.name === "email"); // Initialize emailInput as a class property
 
     this.form.addEventListener("submit", this.handleSubmit.bind(this));
     this.inputs.forEach((input) => {
@@ -12,7 +13,7 @@ class FormValidator {
       input.addEventListener("focus", this.handleFocus.bind(this, input));
     });
 
-    this.validateForm();
+    this.validateForm(); // Disable submit button on first load
   }
 
   showError(input, message) {
@@ -34,7 +35,9 @@ class FormValidator {
   }
 
   hideError(input) {
-    const labelElement = input.parentNode.querySelector("label");
+    const labelElement = input.parentNode.querySelector(
+      ".section-contact-input-label"
+    );
     const originalLabel =
       labelElement.dataset.originalLabel || labelElement.textContent;
     labelElement.textContent = originalLabel;
@@ -44,6 +47,7 @@ class FormValidator {
   validateForm() {
     let formValid = true;
     let hasTouchedInput = false;
+    let hasUntouchedRequiredInput = false; // Track if there are any untouched required inputs
 
     this.inputs.forEach((input) => {
       const value = input.value.trim();
@@ -58,29 +62,42 @@ class FormValidator {
         } else {
           this.hideError(input);
         }
+      } else if (input.required) {
+        // Check if the input is required
+        hasUntouchedRequiredInput = true;
       }
     });
 
+    formValid = formValid && hasTouchedInput && this.validateEmail();
+    this.submitButton.disabled = !formValid && !hasUntouchedRequiredInput;
+
+    // Disable submit button on first load if form is not valid
     if (!hasTouchedInput || !formValid) {
-      formValid = false;
+      this.submitButton.disabled = true;
     }
 
-    this.submitButton.disabled = !formValid || !this.allInputsValid();
     return formValid;
   }
 
   allInputsValid() {
-    return this.inputs.every((input) => {
-      const value = input.value.trim();
-      return (
-        value !== "" && (input.type !== "email" || this.validateEmail(value))
-      );
-    });
+    return this.inputs.every((input) => input.value.trim() !== "");
   }
 
-  validateEmail(email) {
+  validateEmail() {
+    const emailValue = this.emailInput.value.trim();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
+
+    if (
+      this.touchedInputs.has(this.emailInput) &&
+      emailValue !== "" &&
+      !emailRegex.test(emailValue)
+    ) {
+      this.showError(this.emailInput, "Please enter a valid email address:");
+      return false;
+    }
+
+    this.hideError(this.emailInput);
+    return true;
   }
 
   handleBlur(input) {
@@ -89,11 +106,20 @@ class FormValidator {
   }
 
   handleInput(input) {
-    this.validateForm();
+    if (input.name === "email") {
+      this.validateEmail();
+    } else {
+      this.validateForm();
+    }
   }
 
   handleFocus(input) {
     this.touchedInputs.delete(input);
+
+    // Revalidate email input if it is being focused
+    if (input === this.emailInput) {
+      this.validateEmail();
+    }
   }
 
   async handleSubmit(event) {
@@ -123,32 +149,23 @@ class FormValidator {
         this.submitButton.value = "Message Sent";
       } else if (responseData.errors) {
         responseData.errors.forEach((error) => {
-          this.displayErrorMessage(error.message);
+          this.submitButton.value = error.message;
         });
         this.submitButton.value = "Send";
       } else {
-        this.displayErrorMessage(
-          "Oops! Something went wrong. Please try again later."
-        );
-        this.submitButton.value = "Send";
+        this.submitButton.value =
+          "Oops! Something went wrong. Please try again.";
       }
+      setTimeout(() => {
+        this.submitButton.value = "Send";
+      }, 3000); // Revert back to "Send" after 3 seconds
     } catch (error) {
-      this.displayErrorMessage(
-        "Oops! Something went wrong. Please try again later."
-      );
-      this.submitButton.value = "Send";
+      this.submitButton.value = "Oops! Something went wrong. Please try again.";
     }
-
-    setTimeout(() => {
-      this.submitButton.value = "Send";
-    }, 3000); // Revert back to "Send" after 3 seconds
   }
 
   displayErrorMessage(message) {
-    const errorElement = document.createElement("p");
-    errorElement.classList.add("form-error-message");
-    errorElement.textContent = message;
-    this.form.insertBefore(errorElement, this.submitButton);
+    this.submitButton.value = message;
   }
 }
 
