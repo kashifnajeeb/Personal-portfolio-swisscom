@@ -111,9 +111,9 @@ class Header {
 
     this.navbarLinks.forEach((link) => {
       if (link === this.activeLink) {
-        link.classList.add("active");
+        link.classList.add("section-header-navbar-link-active");
       } else {
-        link.classList.remove("active");
+        link.classList.remove("section-header-navbar-link-active");
       }
     });
   }

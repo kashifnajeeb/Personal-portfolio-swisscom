@@ -45,7 +45,7 @@ Header Section Start
 
 .section-header-navbar-link:link:hover,
 .section-header-navbar-link:visited:hover,
-.section-header-navbar-link.active {
+.section-header-navbar-link.section-header-navbar-link-active {
   color: var(--helper);
 }
 
@@ -61,7 +61,7 @@ Header Section Start
 
 .section-header-navbar-link:hover::after,
 .section-header-navbar-link:active::after,
-.section-header-navbar-link.active::after {
+.section-header-navbar-link.section-header-navbar-link-active::after {
   display: block;
   content: "";
   border-bottom: 0.5rem solid var(--helper);
