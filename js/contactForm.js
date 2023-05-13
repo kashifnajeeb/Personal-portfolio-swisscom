@@ -53,10 +53,7 @@ class FormValidator {
       if (this.touchedInputs.has(input)) {
         hasTouchedInput = true;
 
-        if (input.type === "email" && !this.validateEmail(value)) {
-          formValid = false;
-          this.showError(input, "Please enter a valid email address.");
-        } else if (!isValid) {
+        if (!isValid) {
           formValid = false;
           this.showError(input, "This field is required.");
         } else {
@@ -65,12 +62,21 @@ class FormValidator {
       }
     });
 
-    if (!hasTouchedInput) {
+    if (!hasTouchedInput || !formValid) {
       formValid = false;
     }
 
-    this.submitButton.disabled = !formValid;
+    this.submitButton.disabled = !formValid || !this.allInputsValid();
     return formValid;
+  }
+
+  allInputsValid() {
+    return this.inputs.every((input) => {
+      const value = input.value.trim();
+      return (
+        value !== "" && (input.type !== "email" || this.validateEmail(value))
+      );
+    });
   }
 
   validateEmail(email) {
@@ -133,10 +139,6 @@ class FormValidator {
       );
       this.submitButton.value = "Send";
     }
-
-    setTimeout(() => {
-      this.submitButton.value = "Send";
-    }, 3000);
   }
 
   displayErrorMessage(message) {
