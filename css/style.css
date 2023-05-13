@@ -198,9 +198,8 @@ Reusable CSS
 }
 
 .error-message {
-  opacity: 0;
-  color: #ff0000;
-  transition: all 0.3s ease;
+  color: #ff0000 !important;
+  transition: all 0.3s linear;
 }
 
 /*---------------------------

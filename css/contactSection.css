@@ -31,6 +31,12 @@ Contact Section Start
 .section-contact-input-label {
   display: block;
   font-size: 1.65rem;
+  transition: all 0.3s linear;
+}
+
+.section-contact-input-label::after {
+  content: "*";
+  color: #ff0000;
 }
 
 .section-contact-input {
@@ -59,10 +65,4 @@ textarea.section-contact-input {
   background-color: grey;
   cursor: not-allowed;
   box-shadow: none;
-}
-
-.form-submission-message {
-  opacity: 0;
-  transition: all 0.3s ease;
-  text-align: center;
 }

@@ -17,29 +17,28 @@ class FormValidator {
 
   showError(input, message) {
     const errorMessages = {
-      name: "Please enter your name.",
-      subject: "Please enter a subject.",
-      email: "Please enter a valid email address.",
-      message: "Please enter a message.",
+      name: "Please enter your name:",
+      subject: "Please enter a subject:",
+      email: "Please enter a valid email address:",
+      message: "Please enter a message:",
     };
 
-    let errorElement = input.nextElementSibling;
-    if (errorElement && errorElement.classList.contains("error-message")) {
-      errorElement.textContent = errorMessages[input.name] || message;
-    } else {
-      errorElement = document.createElement("p");
-      errorElement.classList.add("error-message");
-      errorElement.textContent = errorMessages[input.name] || message;
-      input.parentNode.insertBefore(errorElement, input.nextElementSibling);
-    }
-    errorElement.style.opacity = 1;
+    const labelElement = input.parentNode.querySelector(
+      ".section-contact-input-label"
+    );
+    const originalLabel =
+      labelElement.dataset.originalLabel || labelElement.textContent;
+    labelElement.textContent = errorMessages[input.name] || message;
+    labelElement.classList.add("error-message");
+    labelElement.dataset.originalLabel = originalLabel;
   }
 
   hideError(input) {
-    const errorElement = input.nextElementSibling;
-    if (errorElement && errorElement.classList.contains("error-message")) {
-      errorElement.remove();
-    }
+    const labelElement = input.parentNode.querySelector("label");
+    const originalLabel =
+      labelElement.dataset.originalLabel || labelElement.textContent;
+    labelElement.textContent = originalLabel;
+    labelElement.classList.remove("error-message");
   }
 
   validateForm() {
