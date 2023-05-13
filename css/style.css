@@ -92,10 +92,10 @@ Reusable CSS
   font-size: 1.8rem;
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
-  -webkit-transition: all 0.3s ease;
-  -moz-transition: all 0.3s ease;
-  -o-transition: all 0.3s ease;
+  transition: all 0.3s linear;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
 }
 
 .btn:hover,
@@ -195,6 +195,12 @@ Reusable CSS
 .image-overlay .common-heading::after,
 .image-overlay .common-heading::before {
   display: none;
+}
+
+.error-message {
+  opacity: 0;
+  color: #ff0000;
+  transition: all 0.3s ease;
 }
 
 /*---------------------------

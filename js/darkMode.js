@@ -4,7 +4,7 @@
 class DarkTheme {
   constructor() {
     this.elementsToStyle = document.querySelectorAll(
-      ".section-skills-stats-percentage, .image-overlay-link, .btn, .image-overlay-description, .section-footer"
+      ".section-skills-stats-percentage, .image-overlay-link, .btn, .image-overlay-description, .section-footer, .section-contact-input-label"
     );
     this.sectionFooter = document.querySelector(".section-footer");
     this.darkModeCheckbox = document.getElementById("section-header-darkmode");

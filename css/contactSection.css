@@ -54,3 +54,15 @@ textarea.section-contact-input {
   align-self: center;
   width: 20rem;
 }
+
+.section-contact-form-submit-btn:disabled {
+  background-color: grey;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.form-submission-message {
+  opacity: 0;
+  transition: all 0.3s ease;
+  text-align: center;
+}
