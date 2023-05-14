@@ -57,6 +57,7 @@ Reusable CSS
   padding: 9rem 0;
   background-color: var(--white);
   overflow: hidden;
+  transition: all 0.3s linear;
 }
 
 .section:nth-child(odd) {

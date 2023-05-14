@@ -1,6 +1,7 @@
 //---------------
 //  Dark Theme
 //---------------
+
 class DarkTheme {
   constructor() {
     this.elementsToStyle = document.querySelectorAll(
@@ -8,15 +9,34 @@ class DarkTheme {
     );
     this.sectionFooter = document.querySelector(".section-footer");
     this.darkModeCheckbox = document.getElementById("section-header-darkmode");
+    this.initialDarkMode =
+      JSON.parse(localStorage.getItem("configurations"))?.darkMode || false;
+    this.applyTheme();
   }
 
   applyTheme() {
-    if (this.darkModeCheckbox.checked) {
+    if (
+      this.darkModeCheckbox.checked &&
+      (this.isDeviceInDarkMode() || this.initialDarkMode)
+    ) {
       this.setCSSVariables();
       this.setStyleColors();
       this.setStyleFooter();
     } else {
       this.clearStyles();
+    }
+  }
+
+  isDeviceInDarkMode() {
+    const configurations =
+      JSON.parse(localStorage.getItem("configurations")) || {};
+    if (configurations.hasOwnProperty("darkMode")) {
+      return configurations.darkMode;
+    } else {
+      return (
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches
+      );
     }
   }
 
@@ -86,9 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const darkModeCheckbox = document.getElementById("section-header-darkmode");
   darkModeCheckbox.addEventListener("change", handleDarkModeToggle);
 
-  // Apply the initial theme based on the stored value in localStorage
-  const configurations =
-    JSON.parse(localStorage.getItem("configurations")) || {};
-  darkModeCheckbox.checked = configurations.darkMode;
+  // Apply the initial theme based on the stored value in localStorage or device's dark mode
+  darkModeCheckbox.checked =
+    darkTheme.initialDarkMode || darkTheme.isDeviceInDarkMode();
   darkTheme.applyTheme();
 });
