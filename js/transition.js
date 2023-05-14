@@ -22,10 +22,6 @@ class Transition {
 
   // Creating the transition
   init() {
-    const observerOptions = {
-      threshold: 0,
-    };
-
     this.transitionElements.forEach((element) => {
       const observer = new IntersectionObserver((entries) =>
         this.handleTransition(entries, observer)
