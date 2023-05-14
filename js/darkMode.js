@@ -1,7 +1,6 @@
 //---------------
 //  Dark Theme
 //---------------
-
 class DarkTheme {
   constructor() {
     this.elementsToStyle = document.querySelectorAll(
