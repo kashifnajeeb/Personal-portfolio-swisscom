@@ -123,6 +123,10 @@ Media Queries
     justify-items: center;
   }
 
+  .section-about-badge-link {
+    grid-column: 1;
+  }
+
   .section-photos-gallery {
     display: grid;
     grid-template-columns: 1fr;
