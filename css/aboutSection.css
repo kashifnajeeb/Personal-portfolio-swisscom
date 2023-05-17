@@ -19,5 +19,6 @@ About Section Start
 
 .section-about-badge {
   width: 25rem;
-  box-shadow: var(--secondary-shadow);
+  filter: blur(9.7rem) drop-shadow(0 0 var(--helper));
+  filter: drop-shadow(0 0 9.7rem var(--helper));
 }
