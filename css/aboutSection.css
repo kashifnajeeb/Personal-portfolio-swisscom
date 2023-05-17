@@ -12,3 +12,12 @@ About Section Start
   border-radius: 2rem;
   overflow: hidden;
 }
+
+.section-about-badge-link {
+  grid-column: 2;
+}
+
+.section-about-badge {
+  width: 25rem;
+  box-shadow: var(--secondary-shadow);
+}
