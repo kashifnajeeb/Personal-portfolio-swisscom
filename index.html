@@ -111,6 +111,7 @@
     <link rel="stylesheet" href="css/preloader.css" type="text/css" />
     <link rel="stylesheet" href="css/scrollToTop.css" type="text/css" />
     <!-- JS -->
+    <script src="js/script.js" type="text/javascript" defer></script>
     <script src="js/darkMode.js" type="text/javascript" defer></script>
     <script src="js/preloader.js" type="text/javascript" defer></script>
     <script src="js/transition.js" type="text/javascript" defer></script>
@@ -626,33 +627,6 @@
               </a>
             </div>
           </div>
-        </div>
-      </section>
-      <!------------------
-        Hobbies Section
-    ---------------------->
-      <section class="section section-hobbies" id="hobbies">
-        <div class="section-hobbies-data container">
-          <h2
-            class="section-hobbies-heading common-heading transition from-bottom"
-          >
-            Hobbies
-          </h2>
-          <ul class="section-hobbies-list">
-            <li class="section-hobbies-list-item transition from-top">
-              <p class="section-hobbies-list-item-text">Programming Websites</p>
-            </li>
-            <li class="section-hobbies-list-item transition from-top">
-              <p class="section-hobbies-list-item-text">
-                Getting Information about latest Technology
-              </p>
-            </li>
-            <li class="section-hobbies-list-item transition from-top">
-              <p class="section-hobbies-list-item-text">
-                Improving and learning new Programming languages
-              </p>
-            </li>
-          </ul>
         </div>
       </section>
       <!------------------ 
@@ -1269,7 +1243,9 @@
       <div class="container">
         <div class="section-footer-credits transition from-top">
           <p class="section-footer-text section-footer-credits-text">
-            Copyright &copy; 2023 Kashif Najeeb. All Rights Reserved.
+            Copyright &copy;
+            <span id="current-year"></span>
+            Kashif Najeeb. All Rights Reserved.
           </p>
         </div>
       </div>

@@ -57,7 +57,7 @@ class DarkTheme {
 
   setStyleFooter() {
     this.sectionFooter.style.color = "var(--black)";
-    this.sectionFooter.style.backgroundColor = "var(--bg)";
+    this.sectionFooter.style.backgroundColor = "var(--white)";
   }
 
   clearStyles() {
