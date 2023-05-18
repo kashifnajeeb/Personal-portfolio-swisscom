@@ -101,27 +101,42 @@ class FormValidator {
 
     clearTimeout(this.emailValidationTimeout); // Clear the previous timeout, if any
 
-    const value = input.value.trim();
-    const isValid = value !== "";
+    if (input.name === "email") {
+      const value = input.value.trim();
+      const isValid = value !== "";
 
-    if (input.name === "email" && isValid) {
-      this.validateEmail(); // Validate the email immediately if it is not empty
-    } else {
       if (!isValid) {
         this.showError(input, "This field is required.");
       } else {
         this.hideError(input);
       }
 
-      this.validateForm(); // Validate the form after handling the input
+      if (isValid && this.emailValidationTimeout === null) {
+        this.validateEmail(); // Validate the email immediately if it is not empty
+      } else {
+        this.emailValidationTimeout = setTimeout(() => {
+          this.validateEmail(); // Validate the email after 1 second of inactivity
+        }, 1000);
+      }
+    } else {
+      const value = input.value.trim();
+      const isValid = value !== "";
+
+      if (!isValid) {
+        this.showError(input, "This field is required.");
+      } else {
+        this.hideError(input);
+      }
+
+      this.validateForm();
     }
   }
 
   handleFocus(input) {
-    this.touchedInputs.add(input);
+    this.touchedInputs.delete(input);
 
-    // Revalidate email input if any other input is being focused
-    if (input !== this.emailInput && this.emailValidationTimeout !== null) {
+    // Revalidate email input if it is being focused
+    if (input === this.emailInput) {
       this.validateEmail();
     }
   }
