@@ -3,21 +3,33 @@ Hero Section Start
 ---------------------------*/
 .section-hero {
   padding: 0;
-  height: 90vh;
+  height: 80vh;
   position: relative;
   text-align: center;
+  background: transparent;
+  padding-top: 4rem;
 }
+
+.section-hero-logo {
+  position: sticky;
+  top: 10rem;
+  text-align: center;
+}
+
 .section-hero-image {
-  filter: grayscale();
+  position: relative;
   width: 100%;
   height: 100%;
   object-position: top;
   object-fit: cover;
+  -webkit-filter: grayscale() drop-shadow(0 0 4rem var(--helper));
+  filter: grayscale() drop-shadow(0 0 4rem var(--helper));
+  z-index: 1;
 }
 
 .section-hero-text-box {
   position: absolute;
-  bottom: 5rem;
+  bottom: 10rem;
   left: 50%;
   transform: translateX(-50%);
   color: var(--black);
@@ -26,9 +38,10 @@ Hero Section Start
   border-radius: 10rem;
   box-shadow: var(--secondary-shadow);
   transition: all 0.3s linear;
+  z-index: 2;
 }
 
-.section-hero-text-box p {
+.section-hero-text {
   color: var(--black);
   font-size: 1.8rem;
   font-weight: 600;
