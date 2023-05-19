@@ -1,21 +1,35 @@
 /*---------------------------
 Hero Section Start
 ---------------------------*/
-.section-hero-text {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.section-hero-image {
+.section-hero {
+  padding: 0;
+  height: 90vh;
+  position: relative;
   text-align: center;
+}
+.section-hero-image {
+  filter: grayscale();
+  width: 100%;
   height: 100%;
+  object-position: top;
+  object-fit: cover;
 }
 
-.section-hero-img {
-  width: 30rem;
-  border-radius: 2rem;
-  height: 100%;
+.section-hero-text-box {
+  position: absolute;
+  bottom: 5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--black);
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 10rem;
   box-shadow: var(--secondary-shadow);
+  transition: all 0.3s linear;
+}
+
+.section-hero-text-box p {
+  color: var(--black);
+  font-size: 1.8rem;
+  font-weight: 600;
 }
