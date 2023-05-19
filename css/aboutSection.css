@@ -19,6 +19,7 @@ About Section Start
 
 .section-about-badge {
   width: 25rem;
+  height: 25rem;
   -webkit-filter: drop-shadow(0 0 9.7rem var(--helper));
   filter: drop-shadow(0 0 9.7rem var(--helper));
 }
