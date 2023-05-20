@@ -20,11 +20,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let cssRule = "";
 
     if (value === "1") {
-      cssRule = `background-image: url('../media/sunny-outline.svg') !important;`;
+      cssRule = `background-image: url('../media/sunny-outline.svg');`;
     } else if (value === "2") {
-      cssRule = `background-image: url('../media/contrast.svg') !important;`;
+      cssRule = `background-image: url('../media/contrast.svg');`;
     } else if (value === "3") {
-      cssRule = `background-image: url('../media/moon-outline.svg') !important;`;
+      cssRule = `background-image: url('../media/moon-outline.svg');`;
     }
 
     // Update the stylesheet with the new CSS rule
