@@ -14,6 +14,7 @@ Hero Section Start
   position: sticky;
   top: 10rem;
   text-align: center;
+  z-index: -1;
 }
 
 .section-hero-image {
@@ -24,7 +25,6 @@ Hero Section Start
   object-fit: cover;
   -webkit-filter: grayscale() drop-shadow(0 0 4rem var(--helper));
   filter: grayscale() drop-shadow(0 0 4rem var(--helper));
-  z-index: 1;
 }
 
 .section-hero-text-box {
@@ -38,7 +38,6 @@ Hero Section Start
   border-radius: 10rem;
   box-shadow: var(--secondary-shadow);
   transition: all 0.3s linear;
-  z-index: 2;
 }
 
 .section-hero-text {
