@@ -1,28 +1,27 @@
-//---------------
-//  Dark Theme
-//---------------
 class DarkTheme {
   constructor() {
     this.elementsToStyle = document.querySelectorAll(
       ".section-skills-stats-percentage, .image-overlay-link, .btn, .image-overlay-description, .section-footer, .section-contact-input-label"
     );
     this.sectionFooter = document.querySelector(".section-footer");
-    this.darkModeCheckbox = document.getElementById("section-header-darkmode");
+    this.darkModeSlider = document.getElementById("section-header-darkmode");
     this.initialDarkMode =
       JSON.parse(localStorage.getItem("configurations"))?.darkMode || false;
     this.applyTheme();
   }
 
   applyTheme() {
+    const darkModeValue = parseInt(this.darkModeSlider.value);
+
     if (
-      this.darkModeCheckbox.checked &&
-      (this.isDeviceInDarkMode() || this.initialDarkMode)
+      darkModeValue === 1 ||
+      (darkModeValue === 2 && !this.isDeviceInDarkMode())
     ) {
+      this.clearStyles();
+    } else {
       this.setCSSVariables();
       this.setStyleColors();
       this.setStyleFooter();
-    } else {
-      this.clearStyles();
     }
   }
 
@@ -87,26 +86,62 @@ document.addEventListener("DOMContentLoaded", function () {
   // Create an instance of DarkTheme
   const darkTheme = new DarkTheme();
 
-  // Apply or remove the dark theme based on the checkbox state
-  function handleDarkModeToggle() {
-    const isChecked = darkModeCheckbox.checked;
-    let configurations = JSON.parse(localStorage.getItem("configurations"));
+  // Apply or remove the dark theme based on the slider value
+  function handleDarkModeChange() {
+    const value = parseInt(darkModeSlider.value);
 
-    if (!configurations) {
-      configurations = {};
+    if (value === 1) {
+      localStorage.setItem(
+        "configurations",
+        JSON.stringify({ darkMode: false })
+      );
+    } else if (value === 2) {
+      const storedConfigurations = JSON.parse(
+        localStorage.getItem("configurations")
+      );
+      if (storedConfigurations && storedConfigurations.darkMode !== undefined) {
+        delete storedConfigurations.darkMode;
+        localStorage.setItem(
+          "configurations",
+          JSON.stringify(storedConfigurations)
+        );
+      }
+    } else if (value === 3) {
+      localStorage.setItem(
+        "configurations",
+        JSON.stringify({ darkMode: true })
+      );
     }
 
-    configurations.darkMode = isChecked;
-    localStorage.setItem("configurations", JSON.stringify(configurations));
     darkTheme.applyTheme();
   }
 
-  // Add event listener to the checkbox for applying/removing the theme dynamically
-  const darkModeCheckbox = document.getElementById("section-header-darkmode");
-  darkModeCheckbox.addEventListener("change", handleDarkModeToggle);
+  // Add event listener to the slider for applying/removing the theme dynamically
+  const darkModeSlider = document.getElementById("section-header-darkmode");
+  darkModeSlider.addEventListener("input", handleDarkModeChange);
 
-  // Apply the initial theme based on the stored value in localStorage or device's dark mode
-  darkModeCheckbox.checked =
-    darkTheme.initialDarkMode || darkTheme.isDeviceInDarkMode();
+  // Get the stored value from localStorage
+  const storedConfigurations = JSON.parse(
+    localStorage.getItem("configurations")
+  );
+  const initialDarkMode = storedConfigurations?.darkMode;
+
+  // Set the initial value of the slider based on the stored value or default to 2
+  darkModeSlider.value = initialDarkMode ? "3" : "2";
+
+  // Store the initial value in localStorage if it doesn't exist
+  if (!storedConfigurations || storedConfigurations.darkMode === undefined) {
+    localStorage.setItem(
+      "configurations",
+      JSON.stringify({ darkMode: initialDarkMode })
+    );
+  }
+
+  // Apply the initial theme based on the stored value in localStorage or device's color scheme
   darkTheme.applyTheme();
+
+  // Update the input range value to 1 if darkMode is false
+  if (initialDarkMode === false) {
+    darkModeSlider.value = "1";
+  }
 });

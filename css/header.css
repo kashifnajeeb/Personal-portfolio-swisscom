@@ -79,8 +79,7 @@ Header Section Start
 }
 
 #section-header-check,
-ion-icon[name="close-outline"],
-#section-header-darkmode {
+ion-icon[name="close-outline"] {
   display: none;
 }
 
@@ -90,36 +89,30 @@ ion-icon[name="close-outline"],
   align-items: center;
 }
 
-.section-header-darkmode-switch {
-  position: relative;
-  display: inline-block;
-  width: 4rem;
+.section-header-theme-toggler {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 50%;
   height: 2rem;
   background-color: var(--helper);
   border-radius: 2rem;
+  outline: none;
+  position: relative;
+  display: inline-block;
   cursor: pointer;
 }
 
-.section-header-darkmode-switch::after {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-family: "Ionicons";
-  content: "\f4b6";
-  font-size: 2rem;
-  position: absolute;
-  top: 0.1rem;
-  left: 0.1rem;
-  width: 1.8rem;
-  height: 1.8rem;
-  background-color: var(--white);
-  border-radius: 2rem;
+.section-header-theme-toggler::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  background-color: #fff;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
   transition: all 0.3s linear;
-}
+  position: relative;
 
-input[type="checkbox"]:checked + .section-header-darkmode-switch::after {
-  content: "\f467";
-  translate: 2rem 0;
-  height: 1.8rem;
-  color: var(--black);
+  background-size: cover;
 }
