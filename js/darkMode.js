@@ -1,3 +1,6 @@
+//---------------
+//  Dark Theme
+//---------------
 class DarkTheme {
   constructor() {
     this.elementsToStyle = document.querySelectorAll(
@@ -5,8 +8,48 @@ class DarkTheme {
     );
     this.sectionFooter = document.querySelector(".section-footer");
     this.darkModeSlider = document.getElementById("section-header-darkmode");
-    this.initialDarkMode =
-      JSON.parse(localStorage.getItem("configurations"))?.darkMode || false;
+    this.applyTheme();
+
+    this.darkModeSlider.addEventListener(
+      "input",
+      this.handleDarkModeChange.bind(this)
+    );
+
+    const storedConfigurations =
+      JSON.parse(localStorage.getItem("configurations")) || {};
+    const initialDarkMode = storedConfigurations.darkMode;
+
+    this.darkModeSlider.value = initialDarkMode ? "3" : "2";
+
+    if (!storedConfigurations.hasOwnProperty("darkMode")) {
+      storedConfigurations.darkMode = initialDarkMode;
+      localStorage.setItem(
+        "configurations",
+        JSON.stringify(storedConfigurations)
+      );
+    }
+
+    this.applyTheme();
+
+    if (initialDarkMode === false) {
+      this.darkModeSlider.value = "1";
+    }
+  }
+
+  handleDarkModeChange() {
+    const value = parseInt(this.darkModeSlider.value);
+    const configurations =
+      JSON.parse(localStorage.getItem("configurations")) || {};
+
+    if (value === 1) {
+      configurations.darkMode = false;
+    } else if (value === 2) {
+      delete configurations.darkMode;
+    } else if (value === 3) {
+      configurations.darkMode = true;
+    }
+
+    localStorage.setItem("configurations", JSON.stringify(configurations));
     this.applyTheme();
   }
 
@@ -83,65 +126,35 @@ class DarkTheme {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Create an instance of DarkTheme
   const darkTheme = new DarkTheme();
 
-  // Apply or remove the dark theme based on the slider value
-  function handleDarkModeChange() {
-    const value = parseInt(darkModeSlider.value);
+  const range = document.querySelector(".section-header-theme-toggler");
+  let styleElement = document.getElementById("custom-style");
 
-    if (value === 1) {
-      localStorage.setItem(
-        "configurations",
-        JSON.stringify({ darkMode: false })
-      );
-    } else if (value === 2) {
-      const storedConfigurations = JSON.parse(
-        localStorage.getItem("configurations")
-      );
-      if (storedConfigurations && storedConfigurations.darkMode !== undefined) {
-        delete storedConfigurations.darkMode;
-        localStorage.setItem(
-          "configurations",
-          JSON.stringify(storedConfigurations)
-        );
-      }
-    } else if (value === 3) {
-      localStorage.setItem(
-        "configurations",
-        JSON.stringify({ darkMode: true })
-      );
-    }
-
-    darkTheme.applyTheme();
+  if (!styleElement) {
+    styleElement = document.createElement("style");
+    styleElement.id = "custom-style";
+    document.head.appendChild(styleElement);
   }
 
-  // Add event listener to the slider for applying/removing the theme dynamically
-  const darkModeSlider = document.getElementById("section-header-darkmode");
-  darkModeSlider.addEventListener("input", handleDarkModeChange);
+  // Because cannot select pseudo elements in JavaScript
+  function updateBackgroundImage(value) {
+    const images = {
+      1: "../media/sunny-outline.svg",
+      2: "../media/contrast.svg",
+      3: "../media/moon-outline.svg",
+    };
 
-  // Get the stored value from localStorage
-  const storedConfigurations = JSON.parse(
-    localStorage.getItem("configurations")
-  );
-  const initialDarkMode = storedConfigurations?.darkMode;
+    const cssRule = `background-image: url('${images[value]}');`;
+    const css = `.section-header-theme-toggler::-webkit-slider-thumb { ${cssRule} } .section-header-theme-toggler::-moz-range-thumb { ${cssRule} }`;
 
-  // Set the initial value of the slider based on the stored value or default to 2
-  darkModeSlider.value = initialDarkMode ? "3" : "2";
-
-  // Store the initial value in localStorage if it doesn't exist
-  if (!storedConfigurations || storedConfigurations.darkMode === undefined) {
-    localStorage.setItem(
-      "configurations",
-      JSON.stringify({ darkMode: initialDarkMode })
-    );
+    styleElement.innerHTML = css;
   }
 
-  // Apply the initial theme based on the stored value in localStorage or device's color scheme
-  darkTheme.applyTheme();
+  range.addEventListener("input", function () {
+    const value = range.value;
+    updateBackgroundImage(value);
+  });
 
-  // Update the input range value to 1 if darkMode is false
-  if (initialDarkMode === false) {
-    darkModeSlider.value = "1";
-  }
+  updateBackgroundImage(range.value);
 });
