@@ -92,7 +92,7 @@ ion-icon[name="close-outline"] {
 .section-header-theme-toggler {
   -webkit-appearance: none;
   appearance: none;
-  width: 50%;
+  width: 10rem;
   height: 2rem;
   background-color: var(--helper);
   border-radius: 2rem;
@@ -107,12 +107,24 @@ ion-icon[name="close-outline"] {
   appearance: none;
   width: 2rem;
   height: 2rem;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s linear;
+  position: relative;
+  background-color: #fff;
+}
+
+.section-header-theme-toggler::-moz-range-thumb {
+  -moz-appearance: none;
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
   background-color: #fff;
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
   transition: all 0.3s linear;
   position: relative;
-
   background-size: cover;
 }
