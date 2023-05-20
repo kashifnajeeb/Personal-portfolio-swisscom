@@ -199,7 +199,7 @@ Reusable CSS
 }
 
 .error-message {
-  color: #ff0000;
+  color: #ff0000 !important;
   transition: all 0.3s linear;
 }
 
