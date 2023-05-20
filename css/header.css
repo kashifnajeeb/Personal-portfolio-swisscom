@@ -41,6 +41,7 @@ Header Section Start
   text-transform: uppercase;
   color: var(--black);
   transition: all 0.3s linear;
+  font-weight: 700;
 }
 
 .section-header-navbar-link:link:hover,
@@ -60,7 +61,6 @@ Header Section Start
 }
 
 .section-header-navbar-link:hover::after,
-.section-header-navbar-link:active::after,
 .section-header-navbar-link.section-header-navbar-link-active::after {
   display: block;
   content: "";

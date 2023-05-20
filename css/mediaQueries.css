@@ -49,8 +49,13 @@ Media Queries
   }
 
   /* Responsive Navbar */
-  .section-header-navbar-link {
-    color: var(--white);
+  .section-header-navbar-link:link,
+  .section-header-navbar-link:visited,
+  .section-header-navbar-link:link:hover,
+  .section-header-navbar-link:visited:hover,
+  .section-header-navbar-link.section-header-navbar-link-active {
+    color: var(--para-tint);
+    font-size: 3rem;
   }
 
   /* Removing the underline effect */
