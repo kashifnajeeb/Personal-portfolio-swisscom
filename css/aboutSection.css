@@ -15,11 +15,27 @@ About Section Start
 
 .section-about-badge-link {
   grid-column: 2;
+  width: 25rem;
+  /* Cannot use filter, because lags on Safari Browser */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .section-about-badge {
   width: 25rem;
   height: 25rem;
-  -webkit-filter: drop-shadow(0 0 9.7rem var(--helper));
-  filter: drop-shadow(0 0 9.7rem var(--helper));
+  position: relative;
+}
+
+.section-about-badge-link::before {
+  /* Adding Shadow */
+  content: "";
+  display: block;
+  position: absolute;
+  height: 24rem;
+  width: 24rem;
+  border-radius: 2rem;
+  box-shadow: var(--secondary-shadow);
+  z-index: -1;
 }
