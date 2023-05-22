@@ -34,6 +34,11 @@ html {
   --backdropColor: "rgba(237, 236, 255, 0.3)";
 }
 
+*::selection {
+  background: var(--helper);
+  color: var(--para-tint);
+}
+
 ::-webkit-scrollbar {
   width: 1.5rem;
   background: var(--bg);
