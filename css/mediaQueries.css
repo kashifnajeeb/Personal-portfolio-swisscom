@@ -54,15 +54,9 @@ Media Queries
   .section-header-navbar-link:link:hover,
   .section-header-navbar-link:visited:hover,
   .section-header-navbar-link.section-header-navbar-link-active {
-    color: var(--para-tint);
     font-size: 3rem;
-  }
-
-  /* Removing the underline effect */
-  .section-header-navbar-link::after,
-  .section-header-navbar-link:hover::after,
-  .section-header-navbar-link:active::after {
-    display: none;
+    /* Fixing jitter when should the line under the link in responsive navbar */
+    height: 3rem;
   }
 
   .section-header-checkbtn {
@@ -75,7 +69,9 @@ Media Queries
     position: fixed;
     width: 100vw;
     height: 100vh;
-    background: var(--helper);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+    background-color: var(--backdropColor);
     top: 0;
     left: 100%;
     text-align: center;
@@ -90,8 +86,6 @@ Media Queries
 
   .section-header-navbar-link {
     display: block;
-    line-height: 3rem;
-    color: var(--para-tint);
   }
 
   #section-header-check:checked ~ .section-header-navbar-links {
@@ -99,7 +93,7 @@ Media Queries
   }
 
   #section-header-check:checked + .section-header-checkbtn {
-    color: var(--para-tint);
+    color: var(--black);
   }
 
   #section-header-check:checked
