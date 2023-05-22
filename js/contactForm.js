@@ -22,10 +22,10 @@ class FormValidator {
 
   showError(input, message) {
     const errorMessages = {
-      name: "Please enter your name:",
-      subject: "Please enter a subject:",
-      email: "Please enter a valid email address:",
-      message: "Please enter a message:",
+      name: "Please enter your name",
+      subject: "Please enter a subject",
+      email: "Please enter a valid email address",
+      message: "Please enter a message",
     };
 
     const labelElement = input.parentNode.querySelector("label");
@@ -83,7 +83,7 @@ class FormValidator {
       emailValue !== "" &&
       !emailRegex.test(emailValue)
     ) {
-      this.showError(this.emailInput, "Please enter a valid email address:");
+      this.showError(this.emailInput, "Please enter a valid email address");
       return false;
     }
 
