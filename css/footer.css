@@ -43,8 +43,10 @@ Footer Section Start
   margin-right: 1rem;
 }
 
+.section-footer-list-item-link,
 .section-footer-link {
   font-style: normal;
+  transition: all 0.3s linear;
 }
 
 .section-footer-credits {
@@ -58,4 +60,15 @@ Footer Section Start
 .section-footer-list-item-link:hover,
 .section-footer-link:hover {
   color: var(--para-tint);
+}
+
+.section-footer-social-links {
+  text-align: center;
+  font-size: 3rem;
+  padding-top: 1rem;
+}
+
+.section-footer-social-link {
+  color: #adadad;
+  transition: all 0.3s linear;
 }
