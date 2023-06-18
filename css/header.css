@@ -70,23 +70,8 @@ Header Section Start
   margin-bottom: -0.5rem;
 }
 
-.section-header-checkbtn {
+#section-header-check {
   display: none;
-  font-size: 3rem;
-  float: right;
-  line-height: 8rem;
-  cursor: pointer;
-}
-
-#section-header-check,
-ion-icon[name="close-outline"] {
-  display: none;
-}
-
-.section-header-darkmode-toggle {
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .section-header-theme-toggler {

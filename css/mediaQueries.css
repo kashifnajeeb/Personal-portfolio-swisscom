@@ -63,8 +63,8 @@ Media Queries
     display: block;
     z-index: 999;
     position: relative;
-    color: var(--black);
   }
+
   .section-header-navbar-links {
     position: fixed;
     width: 100vw;
@@ -90,10 +90,6 @@ Media Queries
 
   #section-header-check:checked ~ .section-header-navbar-links {
     left: 0;
-  }
-
-  #section-header-check:checked + .section-header-checkbtn {
-    color: var(--black);
   }
 
   .section-header-checkbtn svg {

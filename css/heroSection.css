@@ -3,7 +3,7 @@ Hero Section Start
 ---------------------------*/
 .section-hero {
   padding: 0;
-  height: 80vh;
+  height: calc(100vh - 10rem - 9rem);
   position: relative;
   text-align: center;
   background: transparent;
