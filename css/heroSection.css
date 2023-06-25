@@ -13,7 +13,6 @@ Hero Section Start
   position: sticky;
   top: 10rem;
   text-align: center;
-  z-index: -1;
 }
 
 .section-hero-image {
@@ -41,4 +40,15 @@ Hero Section Start
   color: var(--black);
   font-size: 1.8rem;
   font-weight: 600;
+}
+
+.section-hero-background-scroll-text {
+  position: absolute;
+  font-weight: 700;
+  font-size: calc(100vw / 5);
+  color: var(--white);
+  top: 0;
+  left: 0;
+  line-height: 1.3;
+  z-index: -1;
 }
