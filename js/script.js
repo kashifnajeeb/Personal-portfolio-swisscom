@@ -12,7 +12,6 @@ const typewriter = new Typewriter(".section-hero-logo", {
 });
 
 typewriter
-  .pauseFor(2500)
   .typeString("KN")
   .pauseFor(500)
   .deleteChars(1)
