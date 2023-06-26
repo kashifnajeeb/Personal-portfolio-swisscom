@@ -6,7 +6,7 @@
 document.getElementById("current-year").textContent = new Date().getFullYear();
 
 // Typewriter Effect in Hero Section Logo
-var typewriter = new Typewriter(".section-hero-logo", {
+const typewriter = new Typewriter(".section-hero-logo", {
   loop: true,
   delay: 75,
 });
