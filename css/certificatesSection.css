@@ -2,20 +2,17 @@
 Certificates Section Start
 ---------------------------*/
 .section-certificates-items {
-  gap: 3.2rem;
+  align-items: center;
 }
-
-.section-certificates-item {
+.section-certificates-item-img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 2rem;
+  border-radius: 1rem;
   transition: all 0.3s linear;
   cursor: pointer;
   box-shadow: var(--shadow);
+  height: auto;
 }
 
-.section-certificates-item:hover {
+.section-certificates-item-img:hover {
   transform: translateY(-1rem);
 }
