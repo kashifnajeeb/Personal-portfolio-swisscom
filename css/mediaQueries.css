@@ -193,10 +193,6 @@ Media Queries
     --row-index: 8;
   }
 
-  .image-overlay {
-    height: 40rem;
-  }
-
   .section-hero-text {
     text-align: center;
   }
