@@ -5,12 +5,17 @@ Certificates Section Start
   align-items: center;
 }
 
-.section-certificates-item {
+.section-certificates-gallery-item-link {
   background-color: var(--bg);
   height: 100%;
-  width: 100%;
-  text-align: center;
   border-radius: 1rem;
+}
+
+.section-certificates-item {
+  height: 100%;
+  width: 100%;
+  border-radius: 1rem;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,11 +24,10 @@ Certificates Section Start
 
 .section-certificates-item-img {
   width: 100%;
-  height: 100%;
+  height: auto;
   border-radius: 1rem;
   transition: all 0.3s linear;
   cursor: pointer;
-  object-fit: scale-down;
 }
 
 .section-certificates-item-img:hover {
