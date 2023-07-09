@@ -134,6 +134,10 @@ Media Queries
     max-width: 71rem;
   }
 
+  .section-certificates-item-img {
+    object-fit: fill;
+  }
+
   .grid {
     grid-template-columns: repeat(1, 1fr);
     justify-items: center;
